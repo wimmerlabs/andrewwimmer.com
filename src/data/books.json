@@ -81,6 +81,33 @@
       "coverId": 8073789
     },
     {
+      "title": "Think Again",
+      "author": "Adam Grant",
+      "shelf": "Mindset and meaning",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL22484556W",
+      "coverId": 10660412,
+      "cover": "/images/covers/think-again.webp"
+    },
+    {
+      "title": "Can't Hurt Me",
+      "author": "David Goggins",
+      "shelf": "Mindset and meaning",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL18108064W",
+      "cover": "/images/covers/can-t-hurt-me.webp",
+      "coverId": 8305903
+    },
+    {
+      "title": "Building a Second Brain",
+      "author": "Tiago Forte",
+      "shelf": "Mindset and meaning",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL26417584W",
+      "cover": "/images/covers/building-a-second-brain.webp",
+      "coverId": 12372866
+    },
+    {
       "title": "Integrity Selling for the 21st Century",
       "author": "Ron Willingham",
       "shelf": "Sales and leadership",
@@ -142,6 +169,24 @@
       "noCover": true
     },
     {
+      "title": "Never Split the Difference",
+      "author": "Chris Voss & Tahl Raz",
+      "shelf": "Sales and leadership",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL18819818W",
+      "cover": "/images/covers/never-split-the-difference.webp",
+      "coverId": 8365942
+    },
+    {
+      "title": "How to Win Friends and Influence People",
+      "author": "Dale Carnegie",
+      "shelf": "Sales and leadership",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL1063267W",
+      "coverId": 15262530,
+      "cover": "/images/covers/how-to-win-friends-and-influence-people.webp"
+    },
+    {
       "title": "The Hidden Cost of Money",
       "author": "Seb Bunney",
       "shelf": "Money and markets",
@@ -199,6 +244,60 @@
       "openLibrary": "https://openlibrary.org/works/OL26416709W",
       "cover": "/images/covers/security-analysis.webp",
       "coverId": 12371662
+    },
+    {
+      "title": "The Price of Tomorrow",
+      "author": "Jeff Booth",
+      "shelf": "Money and markets",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL21162749W",
+      "cover": "/images/covers/the-price-of-tomorrow.webp",
+      "coverId": 10328839
+    },
+    {
+      "title": "The Psychology of Money",
+      "author": "Morgan Housel",
+      "shelf": "Money and markets",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL21640039W",
+      "cover": "/images/covers/the-psychology-of-money.webp",
+      "coverId": 10389354
+    },
+    {
+      "title": "The Creature from Jekyll Island",
+      "author": "G. Edward Griffin",
+      "shelf": "Money and markets",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL3007423W",
+      "cover": "/images/covers/the-creature-from-jekyll-island.webp",
+      "coverId": 703969
+    },
+    {
+      "title": "The Bitcoin Standard",
+      "author": "Saifedean Ammous",
+      "shelf": "Money and markets",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL20984004W",
+      "coverId": 11936602,
+      "cover": "/images/covers/the-bitcoin-standard.webp"
+    },
+    {
+      "title": "Layered Money",
+      "author": "Nik Bhatia",
+      "shelf": "Money and markets",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL24783194W",
+      "cover": "/images/covers/layered-money.webp",
+      "coverId": 11540684
+    },
+    {
+      "title": "The Fourth Turning",
+      "author": "William Strauss & Neil Howe",
+      "shelf": "Money and markets",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL3289628W",
+      "cover": "/images/covers/the-fourth-turning.webp",
+      "coverId": 367879
     }
   ],
   "antilibrary": [
