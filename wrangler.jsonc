@@ -3,6 +3,9 @@
   // Must match the Worker name in the Cloudflare dashboard (Workers Builds).
   "name": "andrewwimmer-com",
   "compatibility_date": "2026-10-24",
+  // Temporary review address (andrewwimmer-com.<account>.workers.dev).
+  // public/_headers marks it noindex; switch off once andrewwimmer.com is live.
+  "workers_dev": true,
   // Phase 1 is a fully static site: no Worker script, just assets.
   // Phase 3 adds "main" plus run_worker_first for /mcp, /api/* and /r/*.
   "assets": {
