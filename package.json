@@ -1,0 +1,25 @@
+{
+  "name": "andrewwimmer-com",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Personal site of Andrew Wimmer. A Wimmer Labs build.",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0",
+    "astro": "^7.4.2"
+  },
+  "devDependencies": {
+    "wrangler": "^4.152.0"
+  }
+}

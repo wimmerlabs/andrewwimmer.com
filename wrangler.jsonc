@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Must match the Worker name in the Cloudflare dashboard (Workers Builds).
+  "name": "andrewwimmer-com",
+  "compatibility_date": "2026-10-24",
+  // Phase 1 is a fully static site: no Worker script, just assets.
+  // Phase 3 adds "main" plus run_worker_first for /mcp, /api/* and /r/*.
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}

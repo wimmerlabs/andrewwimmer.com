@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import BookCover from '../components/BookCover.astro';
+import ShelfTabs from '../components/ShelfTabs.astro';
+import books from '../data/books.json';
+---
+
+<Base
+  title="Antilibrary"
+  current="library"
+  description="Books Andrew Wimmer would like to have read: the ones still waiting on the shelf."
+>
+  <div class="container page">
+    <ShelfTabs current="antilibrary" />
+    <header class="page-head">
+      <div class="page-head__text">
+        <h1 class="page-title">Antilibrary</h1>
+        <p class="page-intro">Books I'd like to have read: the ones still waiting on the shelf.</p>
+      </div>
+      <p class="meta">{books.antilibrary.length} books · not yet read</p>
+    </header>
+
+    <section class="shelf" aria-label="Unread books">
+      <ul class="book-grid">
+        {
+          books.antilibrary.map((b) => (
+            <li class="book">
+              <BookCover title={b.title} author={b.author} unread />
+              <h2 class="book__title">{b.title}</h2>
+              <p class="book__author">{b.author}</p>
+              {b.why && <p class="book__why">{b.why}</p>}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <p class="note">
+      Both shelves are also available as data at <a href="/books.json">/books.json</a>, and soon through the
+      get_books tool for AI agents.
+    </p>
+  </div>
+</Base>

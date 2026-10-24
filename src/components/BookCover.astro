@@ -1,0 +1,16 @@
+---
+// Covers are drawn from the title and author, never fetched from a third party.
+interface Props {
+  title: string;
+  author: string;
+  index?: number;
+  unread?: boolean;
+}
+const { title, author, index = 0, unread = false } = Astro.props;
+const variant = unread ? 'cover--unread' : `cover--${index % 6}`;
+---
+
+<div class:list={['cover', variant]} aria-hidden="true">
+  <p class="cover__title">{title}</p>
+  <p class="cover__author">{author}</p>
+</div>

@@ -1,0 +1,173 @@
+---
+import Base from '../layouts/Base.astro';
+import BookCover from '../components/BookCover.astro';
+import career from '../data/career.json';
+import books from '../data/books.json';
+import recommendations from '../data/recommendations.json';
+import { site, projects, interests, contactOptions } from '../data/site';
+
+const homeBooks = books.library.filter((b) => b.homepage);
+const shortTitle = (t: string) => t.split(':')[0];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Andrew Wimmer',
+  url: site.url,
+  image: new URL('/images/andrew-wimmer.webp', site.url).toString(),
+  jobTitle: 'Technology Consultant, Team Lead',
+  worksFor: { '@type': 'Organization', name: 'Arthrex-Omaha' },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: career.basics.location.city,
+    addressRegion: career.basics.location.region,
+    addressCountry: career.basics.location.countryCode,
+  },
+  sameAs: [site.links.linkedin, site.links.github],
+};
+---
+
+<Base current="home" jsonLd={jsonLd}>
+  <section class="container hero" aria-labelledby="hero-title">
+    <figure class="hero__photo">
+      <img
+        src="/images/andrew-wimmer.webp"
+        srcset="/images/andrew-wimmer-300.webp 300w, /images/andrew-wimmer.webp 600w"
+        sizes="(max-width: 640px) 200px, 300px"
+        width="600"
+        height="600"
+        alt="Andrew Wimmer"
+      />
+    </figure>
+    <div class="hero__text">
+      <h1 id="hero-title">Hi, I'm Andrew.</h1>
+      <p class="lede">
+        Father, husband, and medical device technology consultant for Arthrex. I started building with AI on
+        the side, and this site is one of those builds.
+      </p>
+      <ul class="tags" aria-label="Quick facts">
+        <li class="tag">Arthrex</li>
+        <li class="tag">Wimmer Labs</li>
+        <li class="tag">Arnolds Park, Iowa</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="container bento">
+    <article class="card card--wide" aria-labelledby="work-title">
+      <p class="eyebrow">Work</p>
+      <div>
+        <h2 id="work-title" class="role-title">Technology Consultant – Team Lead</h2>
+        <p class="eyebrow role-sub">Northwest Iowa Territory</p>
+        <p class="role-orgline">
+          Arthrex-Omaha · Sports Medicine, Foot &amp; Ankle Trauma, Arthroplasty, Biologics, Capital Equipment
+        </p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <p class="stat__value">13+ yrs</p>
+          <p class="stat__label">in orthopedic medical sales</p>
+        </div>
+        <div class="stat">
+          <p class="stat__value">0 → 1</p>
+          <p class="stat__label">Grew shoulder arthroplasty into a major line</p>
+        </div>
+        <div class="stat">
+          <p class="stat__value stat__value--accent">FY26</p>
+          <p class="stat__label">Foot &amp; Ankle Trauma Agency Territory of the Year</p>
+        </div>
+      </div>
+      <div class="card__foot">
+        <a class="arrow-link" href="/career/">Full career →</a>
+        <a class="arrow-link" href="/connect/">Request resume →</a>
+      </div>
+    </article>
+
+    <article class="card card--narrow" id="projects" aria-labelledby="projects-title">
+      <div class="eyebrow-row">
+        <p class="eyebrow">Projects</p>
+        <p class="meta">Wimmer Labs</p>
+      </div>
+      <h2 id="projects-title">Things I've built with AI</h2>
+      <ul class="rows">
+        {
+          projects.map((p) => (
+            <li>
+              <p class="rows__name">
+                {p.url ? <a href={p.url}>{p.name}</a> : p.name}
+              </p>
+              <p class="rows__blurb">
+                {p.blurb}
+                {p.status && <span class="soon">{p.status}</span>}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </article>
+
+    <section class="connect" id="connect" aria-labelledby="connect-title">
+      <div class="connect__text">
+        <h2 id="connect-title">Looking to connect?</h2>
+        <p>Send a request to my AI agent. It checks who's asking, I approve, and you get a private link.</p>
+        <ul class="connect__options" aria-label="What you can request">
+          {contactOptions.map((o) => <li>{o}</li>)}
+        </ul>
+      </div>
+      <a class="btn btn--dark" href="/connect/">Send a request</a>
+    </section>
+
+    <article class="card card--half" aria-labelledby="library-title">
+      <p class="eyebrow">Library</p>
+      <h2 id="library-title">Books that changed how I see things</h2>
+      <div class="mini-covers">
+        {homeBooks.map((b, i) => <BookCover title={shortTitle(b.title)} author={b.author.split(' & ')[0]} index={i} />)}
+      </div>
+      <p class="visually-hidden">{homeBooks.map((b) => `${b.title} by ${b.author}`).join('; ')}</p>
+      <div class="card__foot">
+        <a class="arrow-link" href="/library/">Browse the library →</a>
+      </div>
+    </article>
+
+    <article class="card card--half" aria-labelledby="recs-title">
+      <p class="eyebrow">Recommendations &amp; Resources</p>
+      <h2 id="recs-title">Things I use and recommend</h2>
+      <ul class="rows">
+        {
+          recommendations.categories.map((c) => (
+            <li>
+              <p class="rows__name">{c.name}</p>
+              <p class="rows__blurb">
+                {c.items.length ? `${c.items.length} picks` : 'My picks are on the way'}
+                {!c.items.length && <span class="soon">soon</span>}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="fineprint card__foot">{recommendations.meta.disclosure}</p>
+    </article>
+
+    <article class="card card--half card--dashed" aria-labelledby="agents-title">
+      <p class="eyebrow">For agents</p>
+      <h2 id="agents-title">Ask your AI about me</h2>
+      <pre class="code"><a href="/llms.txt">/llms.txt</a>
+<a href="/career.json">/career.json</a>
+<a href="/books.json">/books.json</a>
+/mcp  → get_career
+        get_books
+        get_recommendations
+        get_resources
+        request_contact</pre>
+      <p class="fineprint">The MCP server is next on the build list.</p>
+    </article>
+
+    <article class="card card--half" aria-labelledby="interests-title">
+      <p class="eyebrow">Interests</p>
+      <h2 id="interests-title">Off the clock</h2>
+      <ul class="chips">
+        {interests.map((i) => <li class="chip">{i}</li>)}
+      </ul>
+    </article>
+  </div>
+</Base>

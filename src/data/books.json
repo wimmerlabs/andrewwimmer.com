@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "lastModified": "2026-10-24",
+    "notes": "Source for the Library/Antilibrary pages, the home Library tile (homepage: true) and the MCP get_books tool. Covers are generated from title/author; no third-party cover images."
+  },
+  "library": [
+    { "title": "The Daily Stoic", "author": "Ryan Holiday & Stephen Hanselman", "shelf": "Favorites", "homepage": true, "why": null },
+    { "title": "Principles: Life and Work", "author": "Ray Dalio", "shelf": "Favorites", "homepage": true, "why": null },
+    { "title": "The Challenger Sale", "author": "Matthew Dixon & Brent Adamson", "shelf": "Favorites", "homepage": true, "why": null },
+    { "title": "Broken Money", "author": "Lyn Alden", "shelf": "Favorites", "homepage": true, "why": null },
+
+    { "title": "12 Rules for Life", "author": "Jordan B. Peterson", "shelf": "Mindset and meaning", "why": null },
+    { "title": "Beyond Order", "author": "Jordan B. Peterson", "shelf": "Mindset and meaning", "why": null },
+    { "title": "The One Year Uncommon Life Daily Challenge", "author": "Tony Dungy & Nathan Whitaker", "shelf": "Mindset and meaning", "why": null },
+    { "title": "Wisdom for Each Day", "author": "Billy Graham", "shelf": "Mindset and meaning", "why": null },
+
+    { "title": "Integrity Selling for the 21st Century", "author": "Ron Willingham", "shelf": "Sales and leadership", "why": null },
+    { "title": "Little Red Book of Selling", "author": "Jeffrey Gitomer", "shelf": "Sales and leadership", "why": null },
+    { "title": "Rhinoceros Success", "author": "Scott Alexander", "shelf": "Sales and leadership", "why": null },
+    { "title": "Leadership and the One Minute Manager", "author": "Ken Blanchard, Patricia Zigarmi & Drea Zigarmi", "shelf": "Sales and leadership", "why": null },
+    { "title": "The Ten-Day MBA", "author": "Steven Silbiger", "shelf": "Sales and leadership", "why": null },
+    { "title": "The 10% Entrepreneur", "author": "Patrick J. McGinnis", "shelf": "Sales and leadership", "why": null },
+    { "title": "Helping Surgeons Treat Their Patients Better", "author": "Arthrex (company history)", "shelf": "Sales and leadership", "why": null },
+
+    { "title": "The Hidden Cost of Money", "author": "Seb Bunney", "shelf": "Money and markets", "why": null },
+    { "title": "Capital Wars", "author": "Michael J. Howell", "shelf": "Money and markets", "why": null },
+    { "title": "The Most Important Thing", "author": "Howard Marks", "shelf": "Money and markets", "why": null },
+    { "title": "The Dao of Capital", "author": "Mark Spitznagel", "shelf": "Money and markets", "why": null },
+    { "title": "The Big Print", "author": "Lawrence Lepard", "shelf": "Money and markets", "why": null },
+    { "title": "Bitcoin Age", "author": "Nik Bhatia", "shelf": "Money and markets", "why": null },
+    { "title": "Security Analysis: 100 Page Summary", "author": "Preston Pysh & Stig Brodersen", "shelf": "Money and markets", "why": null }
+  ],
+  "antilibrary": [
+    { "title": "The Hero with a Thousand Faces", "author": "Joseph Campbell", "why": null },
+    { "title": "The Lessons of History", "author": "Will & Ariel Durant", "why": null },
+    { "title": "Maps of Meaning", "author": "Jordan B. Peterson", "why": null },
+    { "title": "We Who Wrestle with God", "author": "Jordan B. Peterson", "why": null }
+  ]
+}

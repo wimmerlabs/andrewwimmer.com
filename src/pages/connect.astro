@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, contactOptions } from '../data/site';
+---
+
+<Base
+  title="Connect"
+  current="connect"
+  description="Request Andrew Wimmer's contact details or resume. Requests go to his AI agent and he approves each one."
+>
+  <div class="container page">
+    <header class="page-head">
+      <div class="page-head__text">
+        <p class="eyebrow">Connect</p>
+        <h1 class="page-title">Looking to connect?</h1>
+        <p class="page-intro">
+          Send a request to my AI agent. It checks who's asking, I approve, and you get a private link.
+        </p>
+      </div>
+    </header>
+
+    <div class="prose">
+      <h2>What you can request</h2>
+      <ul>
+        {contactOptions.map((o) => <li>{o}</li>)}
+      </ul>
+
+      <h2>How it works</h2>
+      <ol>
+        <li>You tell me who you are and what you're looking for.</li>
+        <li>My AI agent checks the request and sends me a summary.</li>
+        <li>I approve it myself, and you get a private link that only works for you.</li>
+      </ol>
+
+      <h2>The form is almost ready</h2>
+      <p>
+        I'm wiring up the request form now. In the meantime, the best way to reach me is a message on
+        <a href={site.links.linkedin} rel="me noopener">LinkedIn</a>.
+      </p>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import BookCover from '../components/BookCover.astro';
+import ShelfTabs from '../components/ShelfTabs.astro';
+import books from '../data/books.json';
+
+const shelfOrder = ['Favorites', 'Mindset and meaning', 'Sales and leadership', 'Money and markets'];
+let colorIndex = 0;
+const shelves = shelfOrder.map((name) => ({
+  name,
+  slug: `shelf-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+  books: books.library
+    .filter((b) => b.shelf === name)
+    .map((b) => ({ ...b, color: colorIndex++ })),
+}));
+---
+
+<Base
+  title="Library"
+  current="library"
+  description="Books that shaped how Andrew Wimmer thinks about work, money and life."
+>
+  <div class="container page">
+    <ShelfTabs current="library" />
+    <header class="page-head">
+      <div class="page-head__text">
+        <h1 class="page-title">Library</h1>
+        <p class="page-intro">Books that shaped how I think about work, money and life.</p>
+      </div>
+      <p class="meta">{books.library.length} books · read and recommended</p>
+    </header>
+
+    {
+      shelves.map((shelf) => (
+        <section class="shelf" aria-labelledby={shelf.slug}>
+          <div class="shelf__head">
+            <h2 id={shelf.slug}>{shelf.name}</h2>
+            <p class="meta">{shelf.books.length} books</p>
+          </div>
+          <ul class="book-grid">
+            {shelf.books.map((b) => (
+              <li class="book">
+                <BookCover title={b.title.split(':')[0]} author={b.author} index={b.color} />
+                <h3 class="book__title">{b.title}</h3>
+                <p class="book__author">{b.author}</p>
+                {b.why && <p class="book__why">{b.why}</p>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+
+    <p class="note">
+      Both shelves are also available as data at <a href="/books.json">/books.json</a>, and soon through the
+      get_books tool for AI agents.
+    </p>
+  </div>
+</Base>

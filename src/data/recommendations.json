@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "lastModified": "2026-10-24",
+    "disclosure": "No referral links or financial gain on my end. Just my takes.",
+    "notes": "Source for the Recommendations page, the home tile and the MCP get_recommendations tool (filterable by category). Each item: name, url, why (one line), optional location."
+  },
+  "categories": [
+    { "id": "okoboji-activities", "name": "Okoboji activities", "items": [] },
+    { "id": "ai-agents", "name": "AI agents", "items": [] },
+    { "id": "golf-nw-iowa", "name": "Golfing NW Iowa", "items": [] },
+    { "id": "dining-okoboji", "name": "Dining Okoboji", "items": [] }
+  ]
+}

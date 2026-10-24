@@ -1,0 +1,133 @@
+---
+import Base from '../layouts/Base.astro';
+import career from '../data/career.json';
+
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+function fmt(d?: string) {
+  if (!d) return 'Now';
+  const [y, m] = d.split('-');
+  return m ? `${months[Number(m) - 1]} ${y}` : y;
+}
+---
+
+<Base
+  title="Career"
+  current="career"
+  description="Andrew Wimmer: 13+ years in orthopedic medical device sales with Arthrex in Northwest Iowa."
+>
+  <div class="container page">
+    <header class="page-head">
+      <div class="page-head__text">
+        <p class="eyebrow">Career</p>
+        <h1 class="page-title">13+ years in orthopedic medical sales</h1>
+        <p class="page-intro">{career.basics.summary}</p>
+      </div>
+    </header>
+
+    <section class="section" aria-labelledby="experience">
+      <h2 id="experience">Experience</h2>
+      <ol class="timeline">
+        {
+          career.work.map((job) => (
+            <li class="role">
+              <p class="role__dates">
+                {fmt(job.startDate)} – {fmt(job.endDate)}
+              </p>
+              <div class="role__body">
+                <h3>{job.position}</h3>
+                <p class="role__org">
+                  {job.name}
+                  {job.description && ` (${job.description})`} · {job.location}
+                </p>
+                <ul class="bullets">
+                  {job.highlights.map((h) => (
+                    <li>{h}</li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section class="section" aria-labelledby="awards">
+      <h2 id="awards">Awards</h2>
+      <ul class="facts">
+        {
+          career.awards.map((a) => (
+            <li class="fact">
+              <p class="fact__title">{a.title}</p>
+              <p class="fact__sub">
+                {a.awarder} · {a.date}
+              </p>
+              {a.summary && <p class="fact__sub">{a.summary}</p>}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="service">
+      <h2 id="service">Education and service</h2>
+      <ul class="facts">
+        {
+          career.education.map((e) => (
+            <li class="fact">
+              <p class="fact__title">
+                {e.studyType}, {e.area}
+              </p>
+              <p class="fact__sub">
+                {e.institution} · {fmt(e.endDate)}
+              </p>
+            </li>
+          ))
+        }
+        {
+          career.volunteer.map((v) => (
+            <li class="fact">
+              <p class="fact__title">{v.position}</p>
+              <p class="fact__sub">
+                {v.organization} · {fmt(v.startDate)} – {fmt(v.endDate)}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="certs">
+      <h2 id="certs">Certifications</h2>
+      <ul class="facts">
+        {
+          career.certificates.map((c) => (
+            <li class="fact">
+              <p class="fact__title">{c.name}</p>
+              <p class="fact__sub">
+                {c.issuer} · {c.date}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="skills">
+      <h2 id="skills">Skills</h2>
+      <ul class="facts">
+        {
+          career.skills.map((s) => (
+            <li class="fact">
+              <p class="fact__title">{s.name}</p>
+              <p class="fact__sub">{s.keywords.join(' · ')}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <div class="cta">
+      <a class="btn btn--accent" href="/connect/">Request my full resume</a>
+    </div>
+  </div>
+</Base>

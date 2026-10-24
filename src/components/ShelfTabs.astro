@@ -1,0 +1,12 @@
+---
+// Plain links instead of JavaScript tabs: each shelf has its own shareable URL.
+interface Props {
+  current: 'library' | 'antilibrary';
+}
+const { current } = Astro.props;
+---
+
+<nav class="tabs" aria-label="Shelves">
+  <a href="/library/" aria-current={current === 'library' ? 'page' : undefined}>Library</a>
+  <a href="/antilibrary/" aria-current={current === 'antilibrary' ? 'page' : undefined}>Antilibrary</a>
+</nav>

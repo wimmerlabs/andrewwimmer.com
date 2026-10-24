@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+
+<Base title="Colophon" current="colophon" description="How andrewwimmer.com is built: a Wimmer Labs build.">
+  <div class="container page">
+    <header class="page-head">
+      <div class="page-head__text">
+        <p class="eyebrow">Colophon</p>
+        <h1 class="page-title">How this site is built</h1>
+        <p class="page-intro">A Wimmer Labs build, written alongside Claude Code. The whole thing is open source.</p>
+      </div>
+    </header>
+
+    <div class="prose">
+      <h2>The stack</h2>
+      <ul>
+        <li><strong>Astro 7</strong> builds every page ahead of time into plain HTML and CSS.</li>
+        <li><strong>Cloudflare Workers</strong> serves it from Cloudflare's global network.</li>
+        <li>
+          <strong>GitHub</strong> holds the code at
+          <a href={site.links.repo} rel="noopener">wimmerlabs/andrewwimmer.com</a>. Every push deploys
+          automatically.
+        </li>
+        <li><strong>Claude Code</strong> wrote most of it with me, and each commit credits it.</li>
+      </ul>
+
+      <h2>Privacy by default</h2>
+      <ul>
+        <li>No analytics, no trackers, no cookies.</li>
+        <li>No JavaScript is sent to your browser.</li>
+        <li>Fonts (Geist and Geist Mono) are served from this site, not from a third party.</li>
+        <li>Book covers are drawn from the title and author instead of loaded from Google or Amazon.</li>
+        <li>Photos are stripped of hidden location and camera data before they go up.</li>
+        <li>A strict Content Security Policy blocks the page from loading anything from anywhere else.</li>
+      </ul>
+
+      <h2>Readable by agents</h2>
+      <p>
+        Everything here is published for AI assistants too: a plain-text guide at <a href="/llms.txt"
+          ><code>/llms.txt</code></a
+        >, structured data at <a href="/career.json"><code>/career.json</code></a> and
+        <a href="/books.json"><code>/books.json</code></a>, and soon an MCP server at <code>/mcp</code> so your
+        assistant can ask questions straight from the source.
+      </p>
+
+      <h2>Design</h2>
+      <p>
+        Dark, quiet, and built around cards. Type is set in Geist, with Geist Mono for labels. The library is
+        inspired by Maggie Appleton's library and antilibrary pages.
+      </p>
+    </div>
+  </div>
+</Base>

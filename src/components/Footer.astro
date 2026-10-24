@@ -1,0 +1,19 @@
+---
+import { site } from '../data/site';
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__about">
+      <p><strong>A Wimmer Labs build.</strong></p>
+      <p>Astro 7 on Cloudflare Workers, written alongside Claude Code. No trackers, no cookies.</p>
+      <p class="mono">Updated {site.updated}</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/colophon/">Colophon</a>
+      <a href={site.links.repo} rel="noopener">Source on GitHub</a>
+      <a href="/llms.txt">llms.txt</a>
+      <a href={site.links.linkedin} rel="me noopener">LinkedIn</a>
+    </nav>
+  </div>
+</footer>

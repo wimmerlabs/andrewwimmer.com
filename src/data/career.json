@@ -1,0 +1,173 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Andrew R. Wimmer",
+    "label": "Orthopedic Medical Device Sales Leader",
+    "url": "https://andrewwimmer.com",
+    "summary": "Orthopedic medical device sales leader: 13 years with Arthrex, built on a clinical foundation in surgical technology. Run a rural hospital territory across Sports Medicine, Foot & Ankle Trauma, Arthroplasty, Biologics and Capital Equipment, grown at a 24.9% CAGR since 2015. Built Arthroplasty from zero into a major product line and grew Foot & Ankle Trauma 10x. Named Arthrex Territory of the Year, West Region (2015), and Arthrex-Omaha Foot & Ankle, Trauma Territory of the Year (FY26).",
+    "location": {
+      "city": "Arnolds Park",
+      "region": "IA",
+      "countryCode": "US"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "andrew-r-wimmer",
+        "url": "https://www.linkedin.com/in/andrew-r-wimmer"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Arthrex-Omaha",
+      "description": "Formerly Conetic Solutions",
+      "location": "Omaha, NE",
+      "position": "Territory Team Lead, Northwest Iowa",
+      "startDate": "2019-07",
+      "summary": "Lead strategic planning to oversee, develop and grow a wide range of product categories: Sports Medicine, Foot & Ankle Trauma, Arthroplasty, Biologics, Capital Equipment.",
+      "featured": [
+        "Named Arthrex-Omaha Foot & Ankle, Trauma Territory of the Year (FY26): 46.8% growth; 187% to Trauma and 195% to Foot & Ankle Metal quota",
+        "Built Arthroplasty from zero into a major product line; grew Foot & Ankle Trauma 10x at a 25% 5-year CAGR",
+        "Only territory in the agency to hit Arthroplasty quota every year since FY23"
+      ],
+      "highlights": [
+        "Lead strategic planning to oversee, develop and grow a wide range of product categories: Sports Medicine, Foot & Ankle Trauma, Arthroplasty, Biologics, Capital Equipment",
+        "Manage a rural territory, mainly hospitals, including critical access hospitals; grew revenue as the account base consolidated from 12 accounts to 8",
+        "Named Arthrex-Omaha Foot & Ankle, Trauma Territory of the Year (FY26): 46.8% growth; 187% to Trauma and 195% to Foot & Ankle Metal quota",
+        "Built Arthroplasty from zero into a major product line; grew Foot & Ankle Trauma 10x at a 25% 5-year CAGR",
+        "Only territory in the agency to hit Arthroplasty quota every year since FY23",
+        "Built one of the Central Region's most highly penetrated territories, and one of the fastest to adopt innovative technologies and products",
+        "Quota achievement: FY26 104% · FY24 102% · FY21 103% · FY20 100%",
+        "Lead the territory team: onboarded and developed 7 reps, 6 of whom went on to medical school or other healthcare roles",
+        "Negotiated contracts and guided new technologies through hospital value analysis committees (VAC)",
+        "Agency-wide Perseverance Award (FY22)"
+      ]
+    },
+    {
+      "name": "RSW Medical",
+      "description": "Arthrex & Breg distributor",
+      "location": "Dakota Dunes, SD",
+      "position": "Technology Consultant (Sales Representative), Northwest Iowa",
+      "startDate": "2013-06",
+      "endDate": "2019-06",
+      "featured": [
+        "Arthrex Territory of the Year, West Region (2015), with three-person Team Siouxland (NW Iowa + Siouxland)",
+        "Achieved quota FY14–FY18, above regional and national averages, peaking at 121% (FY14)"
+      ],
+      "highlights": [
+        "Arthrex Territory of the Year, West Region (2015), with three-person Team Siouxland (NW Iowa + Siouxland)",
+        "Achieved quota FY14–FY18, above regional and national averages (FY18 103% · FY17 106% · FY16 104% · FY15 108% · FY14 121%)",
+        "Developed contracts and agreements with healthcare facilities and private practice groups to drive new business",
+        "Member of RSW Medical, named Distributor of the Year (2015)"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Iowa Lakes Community College",
+      "position": "Program Advisory Committee, Surgical Technology Program",
+      "startDate": "2014"
+    },
+    {
+      "organization": "Iowa Lakes Community College",
+      "position": "President, Surgical Technology Club",
+      "startDate": "2012-08",
+      "endDate": "2013"
+    },
+    {
+      "organization": "Spencer High School",
+      "position": "Volunteer Assistant Football Coach",
+      "startDate": "2007-05",
+      "endDate": "2014"
+    }
+  ],
+  "education": [
+    {
+      "institution": "The University of Iowa",
+      "url": "https://uiowa.edu",
+      "area": "Biology",
+      "studyType": "Bachelor of Arts (BA)",
+      "endDate": "2011-12"
+    },
+    {
+      "institution": "Iowa Lakes Community College",
+      "url": "https://www.iowalakes.edu",
+      "area": "Surgical Technology",
+      "studyType": "Associate of Applied Science (AAS)",
+      "endDate": "2013-07"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Foot & Ankle, Trauma Territory of the Year (FY26)",
+      "date": "2026",
+      "awarder": "Arthrex-Omaha"
+    },
+    {
+      "title": "Perseverance Award (FY22)",
+      "date": "2022",
+      "awarder": "Arthrex-Omaha"
+    },
+    {
+      "title": "Territory of the Year, West Region",
+      "date": "2015",
+      "awarder": "Arthrex",
+      "summary": "Awarded to three-person Team Siouxland (Northwest Iowa + Siouxland territories), while the agency operated as RSW Medical"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Arthrex Technology Consultant Program, Certificate of Achievement",
+      "date": "2023",
+      "issuer": "Arthrex"
+    },
+    {
+      "name": "Arthrex Sports Top Gun (SMART)",
+      "date": "2016",
+      "issuer": "Arthrex"
+    },
+    {
+      "name": "Certified Surgical Technologist (CST)",
+      "date": "2013",
+      "issuer": "NBSTSA"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Sales & Leadership",
+      "keywords": [
+        "Territory growth",
+        "Contract negotiation",
+        "Value analysis (VAC)",
+        "Rep development",
+        "Presentations"
+      ]
+    },
+    {
+      "name": "Orthopedics",
+      "keywords": [
+        "Arthroplasty",
+        "Sports Medicine",
+        "Foot & Ankle",
+        "Trauma",
+        "Biologics",
+        "Capital Equipment"
+      ]
+    },
+    {
+      "name": "Clinical",
+      "keywords": [
+        "OR workflows",
+        "Surgical technology",
+        "Surgeon and OR staff education"
+      ]
+    }
+  ],
+  "meta": {
+    "canonical": "https://andrewwimmer.com/career.json",
+    "version": "2026.10.24",
+    "lastModified": "2026-10-24",
+    "notes": "Public version. Contact and full resume via the request form at andrewwimmer.com. 'featured' is a site-specific field: the 2–3 wins shown per role on the Career page."
+  }
+}

@@ -1,0 +1,28 @@
+# build output
+dist/
+.astro/
+.wrangler/
+
+# dependencies
+node_modules/
+
+# secrets: never commit these
+.env
+.env.*
+.dev.vars
+.dev.vars.*
+*.pem
+*.key
+
+# private documents: the resume lives in private Cloudflare storage, never here
+*.pdf
+*.docx
+*.doc
+resume*
+Resume*
+
+# editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.log

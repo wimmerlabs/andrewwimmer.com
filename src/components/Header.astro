@@ -1,0 +1,45 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+  current?: 'home' | 'career' | 'library' | 'colophon' | 'connect';
+}
+const { current } = Astro.props;
+
+const nav = [
+  { href: '/career/', label: 'Career', key: 'career' },
+  { href: '/#projects', label: 'Projects', key: 'projects' },
+  { href: '/library/', label: 'Library', key: 'library' },
+  { href: '/colophon/', label: 'Colophon', key: 'colophon' },
+];
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <div class="brand-group">
+      <a class="brand" href="/" aria-current={current === 'home' ? 'page' : undefined}>
+        <span class="brand__mark" aria-hidden="true">AW</span>
+        <span>Andrew Wimmer</span>
+      </a>
+      <div class="social">
+        <a class="pill-link" href={site.links.linkedin} rel="me noopener" aria-label="Andrew Wimmer on LinkedIn">
+          LinkedIn
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"></path></svg>
+        </a>
+        <a class="pill-link" href={site.links.github} rel="me noopener" aria-label="Wimmer Labs on GitHub">
+          GitHub
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"></path></svg>
+        </a>
+      </div>
+    </div>
+    <nav class="nav" aria-label="Main">
+      {
+        nav.map((item) => (
+          <a href={item.href} aria-current={current === item.key ? 'page' : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
