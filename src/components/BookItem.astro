@@ -1,0 +1,27 @@
+---
+import BookCover from './BookCover.astro';
+
+interface Props {
+  book: {
+    title: string;
+    author: string;
+    cover?: string;
+    openLibrary?: string;
+    why?: string | null;
+  };
+  index?: number;
+  unread?: boolean;
+}
+const { book, index = 0, unread = false } = Astro.props;
+const Wrapper = book.openLibrary ? 'a' : 'div';
+const linkProps = book.openLibrary ? { href: book.openLibrary, rel: 'noopener' } : {};
+---
+
+<li class="book">
+  <Wrapper class="book__link" {...linkProps}>
+    <BookCover title={book.title.split(':')[0]} author={book.author} src={book.cover} index={index} unread={unread} />
+    <h3 class="book__title">{book.title}</h3>
+  </Wrapper>
+  <p class="book__author">{book.author}</p>
+  {book.why && <p class="book__why">{book.why}</p>}
+</li>

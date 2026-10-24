@@ -11,7 +11,8 @@
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run build && wrangler deploy",
+    "covers": "node scripts/fetch-covers.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
@@ -20,6 +21,7 @@
     "astro": "^7.4.2"
   },
   "devDependencies": {
+    "sharp": "^0.35.5",
     "wrangler": "^4.152.0"
   }
 }

@@ -19,6 +19,8 @@ Everything on the site is generated from the files in `src/data/`:
 
 Edit a file, push, and the site rebuilds.
 
+**Adding a book:** add it to `books.json`, then run `npm run covers`. The script finds the cover on [Open Library](https://openlibrary.org), saves a small WebP copy to `public/images/covers/`, and records the cover and Open Library link in `books.json`. Check the cover is the right edition; if not, set `coverId` by hand (or `noCover: true` to keep the generated cover) and run it again.
+
 ## Local development
 
 ```sh

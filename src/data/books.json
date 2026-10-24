@@ -1,39 +1,238 @@
 {
   "meta": {
     "lastModified": "2026-10-24",
-    "notes": "Source for the Library/Antilibrary pages, the home Library tile (homepage: true) and the MCP get_books tool. Covers are generated from title/author; no third-party cover images."
+    "notes": "Source for the Library/Antilibrary pages, the home Library tile (homepage: true) and the MCP get_books tool. Covers come from Open Library via scripts/fetch-covers.mjs and are stored in public/images/covers (self-hosted). Books with noCover use a generated cover."
   },
   "library": [
-    { "title": "The Daily Stoic", "author": "Ryan Holiday & Stephen Hanselman", "shelf": "Favorites", "homepage": true, "why": null },
-    { "title": "Principles: Life and Work", "author": "Ray Dalio", "shelf": "Favorites", "homepage": true, "why": null },
-    { "title": "The Challenger Sale", "author": "Matthew Dixon & Brent Adamson", "shelf": "Favorites", "homepage": true, "why": null },
-    { "title": "Broken Money", "author": "Lyn Alden", "shelf": "Favorites", "homepage": true, "why": null },
-
-    { "title": "12 Rules for Life", "author": "Jordan B. Peterson", "shelf": "Mindset and meaning", "why": null },
-    { "title": "Beyond Order", "author": "Jordan B. Peterson", "shelf": "Mindset and meaning", "why": null },
-    { "title": "The One Year Uncommon Life Daily Challenge", "author": "Tony Dungy & Nathan Whitaker", "shelf": "Mindset and meaning", "why": null },
-    { "title": "Wisdom for Each Day", "author": "Billy Graham", "shelf": "Mindset and meaning", "why": null },
-
-    { "title": "Integrity Selling for the 21st Century", "author": "Ron Willingham", "shelf": "Sales and leadership", "why": null },
-    { "title": "Little Red Book of Selling", "author": "Jeffrey Gitomer", "shelf": "Sales and leadership", "why": null },
-    { "title": "Rhinoceros Success", "author": "Scott Alexander", "shelf": "Sales and leadership", "why": null },
-    { "title": "Leadership and the One Minute Manager", "author": "Ken Blanchard, Patricia Zigarmi & Drea Zigarmi", "shelf": "Sales and leadership", "why": null },
-    { "title": "The Ten-Day MBA", "author": "Steven Silbiger", "shelf": "Sales and leadership", "why": null },
-    { "title": "The 10% Entrepreneur", "author": "Patrick J. McGinnis", "shelf": "Sales and leadership", "why": null },
-    { "title": "Helping Surgeons Treat Their Patients Better", "author": "Arthrex (company history)", "shelf": "Sales and leadership", "why": null },
-
-    { "title": "The Hidden Cost of Money", "author": "Seb Bunney", "shelf": "Money and markets", "why": null },
-    { "title": "Capital Wars", "author": "Michael J. Howell", "shelf": "Money and markets", "why": null },
-    { "title": "The Most Important Thing", "author": "Howard Marks", "shelf": "Money and markets", "why": null },
-    { "title": "The Dao of Capital", "author": "Mark Spitznagel", "shelf": "Money and markets", "why": null },
-    { "title": "The Big Print", "author": "Lawrence Lepard", "shelf": "Money and markets", "why": null },
-    { "title": "Bitcoin Age", "author": "Nik Bhatia", "shelf": "Money and markets", "why": null },
-    { "title": "Security Analysis: 100 Page Summary", "author": "Preston Pysh & Stig Brodersen", "shelf": "Money and markets", "why": null }
+    {
+      "title": "The Daily Stoic",
+      "author": "Ryan Holiday & Stephen Hanselman",
+      "shelf": "Favorites",
+      "homepage": true,
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL20046443W",
+      "coverId": 13098570,
+      "cover": "/images/covers/the-daily-stoic.webp"
+    },
+    {
+      "title": "Principles: Life and Work",
+      "author": "Ray Dalio",
+      "shelf": "Favorites",
+      "homepage": true,
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL18147675W",
+      "coverId": 8315355,
+      "cover": "/images/covers/principles.webp"
+    },
+    {
+      "title": "The Challenger Sale",
+      "author": "Matthew Dixon & Brent Adamson",
+      "shelf": "Favorites",
+      "homepage": true,
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL15981317W",
+      "cover": "/images/covers/the-challenger-sale.webp",
+      "coverId": 7970492
+    },
+    {
+      "title": "Broken Money",
+      "author": "Lyn Alden",
+      "shelf": "Favorites",
+      "homepage": true,
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL36719480W",
+      "cover": "/images/covers/broken-money.webp",
+      "coverId": 15153544
+    },
+    {
+      "title": "12 Rules for Life",
+      "author": "Jordan B. Peterson",
+      "shelf": "Mindset and meaning",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL17837119W",
+      "cover": "/images/covers/12-rules-for-life.webp",
+      "coverId": 8131760
+    },
+    {
+      "title": "Beyond Order",
+      "author": "Jordan B. Peterson",
+      "shelf": "Mindset and meaning",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL23612724W",
+      "cover": "/images/covers/beyond-order.webp",
+      "coverId": 10517194
+    },
+    {
+      "title": "The One Year Uncommon Life Daily Challenge",
+      "author": "Tony Dungy & Nathan Whitaker",
+      "shelf": "Mindset and meaning",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL16444846W",
+      "cover": "/images/covers/the-one-year-uncommon-life-daily-challenge.webp",
+      "coverId": 7002538
+    },
+    {
+      "title": "Wisdom for Each Day",
+      "author": "Billy Graham",
+      "shelf": "Mindset and meaning",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL15093003W",
+      "cover": "/images/covers/wisdom-for-each-day.webp",
+      "coverId": 8073789
+    },
+    {
+      "title": "Integrity Selling for the 21st Century",
+      "author": "Ron Willingham",
+      "shelf": "Sales and leadership",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL2660161W",
+      "cover": "/images/covers/integrity-selling-for-the-21st-century.webp",
+      "coverId": 242542
+    },
+    {
+      "title": "Little Red Book of Selling",
+      "author": "Jeffrey Gitomer",
+      "shelf": "Sales and leadership",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL7952031W",
+      "cover": "/images/covers/little-red-book-of-selling.webp",
+      "coverId": 931984
+    },
+    {
+      "title": "Rhinoceros Success",
+      "author": "Scott Alexander",
+      "shelf": "Sales and leadership",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL16568854W",
+      "cover": "/images/covers/rhinoceros-success.webp",
+      "coverId": 12550519
+    },
+    {
+      "title": "Leadership and the One Minute Manager",
+      "author": "Ken Blanchard, Patricia Zigarmi & Drea Zigarmi",
+      "shelf": "Sales and leadership",
+      "why": null,
+      "coverId": 13639896,
+      "openLibrary": "https://openlibrary.org/works/OL8035383W",
+      "cover": "/images/covers/leadership-and-the-one-minute-manager.webp"
+    },
+    {
+      "title": "The Ten-Day MBA",
+      "author": "Steven Silbiger",
+      "shelf": "Sales and leadership",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL3919524W",
+      "cover": "/images/covers/the-ten-day-mba.webp",
+      "coverId": 431263
+    },
+    {
+      "title": "The 10% Entrepreneur",
+      "author": "Patrick J. McGinnis",
+      "shelf": "Sales and leadership",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL20033305W",
+      "cover": "/images/covers/the-10-entrepreneur.webp",
+      "coverId": 12753315
+    },
+    {
+      "title": "Helping Surgeons Treat Their Patients Better",
+      "author": "Arthrex (company history)",
+      "shelf": "Sales and leadership",
+      "why": null,
+      "noCover": true
+    },
+    {
+      "title": "The Hidden Cost of Money",
+      "author": "Seb Bunney",
+      "shelf": "Money and markets",
+      "why": null,
+      "noCover": true
+    },
+    {
+      "title": "Capital Wars",
+      "author": "Michael J. Howell",
+      "shelf": "Money and markets",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL20914963W",
+      "cover": "/images/covers/capital-wars.webp",
+      "coverId": 10282433
+    },
+    {
+      "title": "The Most Important Thing",
+      "author": "Howard Marks",
+      "shelf": "Money and markets",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL16001857W",
+      "cover": "/images/covers/the-most-important-thing.webp",
+      "coverId": 10001222
+    },
+    {
+      "title": "The Dao of Capital",
+      "author": "Mark Spitznagel",
+      "shelf": "Money and markets",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL20734893W",
+      "cover": "/images/covers/the-dao-of-capital.webp",
+      "coverId": 9426650
+    },
+    {
+      "title": "The Big Print",
+      "author": "Lawrence Lepard",
+      "shelf": "Money and markets",
+      "why": null,
+      "coverId": 15141789,
+      "openLibrary": "https://openlibrary.org/works/OL42457869W",
+      "cover": "/images/covers/the-big-print.webp"
+    },
+    {
+      "title": "Bitcoin Age",
+      "author": "Nik Bhatia",
+      "shelf": "Money and markets",
+      "why": null,
+      "noCover": true
+    },
+    {
+      "title": "Security Analysis: 100 Page Summary",
+      "author": "Preston Pysh & Stig Brodersen",
+      "shelf": "Money and markets",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL26416709W",
+      "cover": "/images/covers/security-analysis.webp",
+      "coverId": 12371662
+    }
   ],
   "antilibrary": [
-    { "title": "The Hero with a Thousand Faces", "author": "Joseph Campbell", "why": null },
-    { "title": "The Lessons of History", "author": "Will & Ariel Durant", "why": null },
-    { "title": "Maps of Meaning", "author": "Jordan B. Peterson", "why": null },
-    { "title": "We Who Wrestle with God", "author": "Jordan B. Peterson", "why": null }
+    {
+      "title": "The Hero with a Thousand Faces",
+      "author": "Joseph Campbell",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL2497175W",
+      "cover": "/images/covers/the-hero-with-a-thousand-faces.webp",
+      "coverId": 443668
+    },
+    {
+      "title": "The Lessons of History",
+      "author": "Will & Ariel Durant",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL1073956W",
+      "cover": "/images/covers/the-lessons-of-history.webp",
+      "coverId": 7240225
+    },
+    {
+      "title": "Maps of Meaning",
+      "author": "Jordan B. Peterson",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL1954267W",
+      "cover": "/images/covers/maps-of-meaning.webp",
+      "coverId": 268877
+    },
+    {
+      "title": "We Who Wrestle with God",
+      "author": "Jordan B. Peterson",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL37837176W",
+      "cover": "/images/covers/we-who-wrestle-with-god.webp",
+      "coverId": 14832762
+    }
   ]
 }

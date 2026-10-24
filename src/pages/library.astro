@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import BookCover from '../components/BookCover.astro';
+import BookItem from '../components/BookItem.astro';
 import ShelfTabs from '../components/ShelfTabs.astro';
 import books from '../data/books.json';
 
@@ -39,12 +39,7 @@ const shelves = shelfOrder.map((name) => ({
           </div>
           <ul class="book-grid">
             {shelf.books.map((b) => (
-              <li class="book">
-                <BookCover title={b.title.split(':')[0]} author={b.author} index={b.color} />
-                <h3 class="book__title">{b.title}</h3>
-                <p class="book__author">{b.author}</p>
-                {b.why && <p class="book__why">{b.why}</p>}
-              </li>
+              <BookItem book={b} index={b.color} />
             ))}
           </ul>
         </section>
@@ -52,8 +47,9 @@ const shelves = shelfOrder.map((name) => ({
     }
 
     <p class="note">
-      Both shelves are also available as data at <a href="/books.json">/books.json</a>, and soon through the
-      get_books tool for AI agents.
+      Covers and book pages courtesy of <a href="https://openlibrary.org" rel="noopener">Open Library</a>. Both
+      shelves are also available as data at <a href="/books.json">/books.json</a>, and soon through the get_books
+      tool for AI agents.
     </p>
   </div>
 </Base>

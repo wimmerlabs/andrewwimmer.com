@@ -1,16 +1,26 @@
 ---
-// Covers are drawn from the title and author, never fetched from a third party.
+// Real covers come from Open Library (downloaded once by scripts/fetch-covers.mjs
+// and served from this site). Books without one get a cover drawn from the
+// title and author.
 interface Props {
   title: string;
   author: string;
+  src?: string;
   index?: number;
   unread?: boolean;
 }
-const { title, author, index = 0, unread = false } = Astro.props;
-const variant = unread ? 'cover--unread' : `cover--${index % 6}`;
+const { title, author, src, index = 0, unread = false } = Astro.props;
 ---
 
-<div class:list={['cover', variant]} aria-hidden="true">
-  <p class="cover__title">{title}</p>
-  <p class="cover__author">{author}</p>
-</div>
+{
+  src ? (
+    <div class:list={['cover-frame', { 'cover-frame--unread': unread }]}>
+      <img src={src} alt="" loading="lazy" decoding="async" />
+    </div>
+  ) : (
+    <div class:list={['cover', unread ? 'cover--unread' : `cover--${index % 6}`]} aria-hidden="true">
+      <p class="cover__title">{title}</p>
+      <p class="cover__author">{author}</p>
+    </div>
+  )
+}
