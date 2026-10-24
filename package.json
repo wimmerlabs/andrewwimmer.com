@@ -12,7 +12,8 @@
     "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
     "deploy": "npm run build && wrangler deploy",
-    "covers": "node scripts/fetch-covers.mjs"
+    "covers": "node scripts/fetch-covers.mjs",
+    "prebuild": "node scripts/check-books.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

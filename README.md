@@ -19,6 +19,10 @@ Everything on the site is generated from the files in `src/data/`:
 
 Edit a file, push, and the site rebuilds.
 
+**Safety check:** `scripts/check-books.mjs` runs before every build and stops it if `books.json` has a duplicate (including a book on both the Library and Antilibrary), a missing title/author, a shelf that isn't in `meta.shelves`, a missing cover file, or more than four home-page favorites. A failed build leaves the live site on its last good version. Run it yourself with `node scripts/check-books.mjs`.
+
+**Finishing a book:** move its entry from `antilibrary` to `library` and give it a `shelf`.
+
 **Adding a book:** add it to `books.json`, then run `npm run covers`. The script finds the cover on [Open Library](https://openlibrary.org), saves a small WebP copy to `public/images/covers/`, and records the cover and Open Library link in `books.json`. Check the cover is the right edition; if not, set `coverId` by hand (or `noCover: true` to keep the generated cover) and run it again.
 
 ## Local development

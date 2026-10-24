@@ -4,7 +4,8 @@ import BookItem from '../components/BookItem.astro';
 import ShelfTabs from '../components/ShelfTabs.astro';
 import books from '../data/books.json';
 
-const shelfOrder = ['Favorites', 'Mindset and meaning', 'Sales and leadership', 'Money and markets'];
+// Shelf names and order live in books.json (meta.shelves), checked before every build.
+const shelfOrder = books.meta.shelves;
 let colorIndex = 0;
 const shelves = shelfOrder.map((name) => ({
   name,

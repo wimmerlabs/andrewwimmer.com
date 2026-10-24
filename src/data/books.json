@@ -1,7 +1,13 @@
 {
   "meta": {
     "lastModified": "2026-10-24",
-    "notes": "Source for the Library/Antilibrary pages, the home Library tile (homepage: true) and the MCP get_books tool. Covers come from Open Library via scripts/fetch-covers.mjs and are stored in public/images/covers (self-hosted). Books with noCover use a generated cover."
+    "shelves": [
+      "Favorites",
+      "Mindset and meaning",
+      "Sales and leadership",
+      "Money and markets"
+    ],
+    "notes": "Source for the Library/Antilibrary pages, the home Library tile (homepage: true) and the MCP get_books tool. Covers come from Open Library via scripts/fetch-covers.mjs and are stored in public/images/covers (self-hosted). Books with noCover use a generated cover. Shelves on the Library page appear in the order of meta.shelves. scripts/check-books.mjs runs before every build and blocks duplicates, unknown shelves and missing covers."
   },
   "library": [
     {
