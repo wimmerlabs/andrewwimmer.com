@@ -108,6 +108,15 @@
       "coverId": 12372866
     },
     {
+      "title": "Meditations",
+      "author": "Marcus Aurelius",
+      "shelf": "Mindset and meaning",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL1317211W",
+      "cover": "/images/covers/meditations.webp",
+      "coverId": 211529
+    },
+    {
       "title": "Integrity Selling for the 21st Century",
       "author": "Ron Willingham",
       "shelf": "Sales and leadership",
@@ -307,6 +316,15 @@
       "openLibrary": "https://openlibrary.org/works/OL3289628W",
       "cover": "/images/covers/the-fourth-turning.webp",
       "coverId": 367879
+    },
+    {
+      "title": "The Sovereign Individual",
+      "author": "James Dale Davidson & William Rees-Mogg",
+      "shelf": "Money and markets",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL3350985W",
+      "cover": "/images/covers/the-sovereign-individual.webp",
+      "coverId": 425227
     }
   ],
   "antilibrary": [
@@ -397,6 +415,22 @@
       "openLibrary": "https://openlibrary.org/works/OL21679891W",
       "cover": "/images/covers/your-next-five-moves.webp",
       "coverId": 10961423
+    },
+    {
+      "title": "The Hard Thing About Hard Things",
+      "author": "Ben Horowitz",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL16818208W",
+      "cover": "/images/covers/the-hard-thing-about-hard-things.webp",
+      "coverId": 7279515
+    },
+    {
+      "title": "High Output Management",
+      "author": "Andrew S. Grove",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL2355834W",
+      "cover": "/images/covers/high-output-management.webp",
+      "coverId": 421244
     }
   ]
 }
