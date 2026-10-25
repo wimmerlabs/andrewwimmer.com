@@ -3,9 +3,9 @@
   // Must match the Worker name in the Cloudflare dashboard (Workers Builds).
   "name": "andrewwimmer-com",
   "compatibility_date": "2026-10-24",
-  // Temporary review address (andrewwimmer-com.<account>.workers.dev).
-  // public/_headers marks it noindex; switch off once andrewwimmer.com is live.
-  "workers_dev": true,
+  // The site lives at andrewwimmer.com (custom domain, attached in the dashboard;
+  // www redirects there via a Redirect Rule). The temporary workers.dev address is off.
+  "workers_dev": false,
   // Per-version preview links (Cloudflare marks them noindex automatically).
   "preview_urls": true,
   // Don't send Wrangler usage telemetry from builds.

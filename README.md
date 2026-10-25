@@ -3,7 +3,7 @@
 Personal site of Andrew Wimmer. A Wimmer Labs build, written alongside [Claude Code](https://claude.com/claude-code).
 
 - **Astro 7**, fully static: no client JavaScript, no trackers, no cookies
-- **Cloudflare Workers** (static assets), deployed automatically on every push to `main`
+- **Cloudflare Workers** (static assets) at https://andrewwimmer.com, deployed automatically on every push to `main`
 - Readable by AI agents: [`/llms.txt`](https://andrewwimmer.com/llms.txt), [`/career.json`](https://andrewwimmer.com/career.json), [`/books.json`](https://andrewwimmer.com/books.json), MCP server coming soon
 
 ## Updating content
