@@ -1,0 +1,19 @@
+---
+// Template for pages the Worker writes (request status, form errors). The Worker
+// fills the data-slot elements and serves it at /connect/status/<private token>.
+// Visiting /connect/status/ directly returns 404, and the sitemap skips it.
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="Your request" current="connect" noindex>
+  <div class="container page">
+    <header class="page-head">
+      <div class="page-head__text">
+        <p class="eyebrow" data-slot="eyebrow">Connect</p>
+        <h1 class="page-title" data-slot="title">Your request</h1>
+        <p class="page-intro" data-slot="intro"></p>
+      </div>
+    </header>
+    <div class="prose" data-slot="body"></div>
+  </div>
+</Base>

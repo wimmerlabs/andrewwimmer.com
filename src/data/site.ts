@@ -1,5 +1,7 @@
 // Small bits of site content that don't have their own JSON file yet.
 
+import { contactItems } from './connect';
+
 export const site = {
   name: 'Andrew Wimmer',
   url: 'https://andrewwimmer.com',
@@ -39,4 +41,4 @@ export const interests = ['AI', 'Bitcoin', 'Boating', 'Golf', 'Investing', 'Okob
   a.localeCompare(b, 'en', { sensitivity: 'base' }),
 );
 
-export const contactOptions = ['Email', 'Phone', 'Signal', 'Telegram', 'Nostr', 'Resume'];
+export const contactOptions = contactItems.map((i) => i.label);

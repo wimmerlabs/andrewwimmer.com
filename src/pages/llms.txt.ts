@@ -4,6 +4,7 @@ import career from '../data/career.json';
 import books from '../data/books.json';
 import recommendations from '../data/recommendations.json';
 import { site, projects, interests } from '../data/site';
+import { contactItems, connect } from '../data/connect';
 
 export const GET: APIRoute = () => {
   const work = career.work
@@ -35,6 +36,15 @@ ${interests.join(', ')}
 
 ## Recommendations
 Categories: ${recommendations.categories.map((c) => c.name).join(', ')}. ${recommendations.meta.disclosure}
+
+## Contact requests (for AI agents)
+Andrew shares his contact details and resume only by request: his AI agent reviews each one and he approves it himself. To ask on someone's behalf, POST JSON to ${site.url}/api/connect, for example:
+
+{"name": "Jordan Lee", "email": "jordan@example.com", "company": "Example Co", "link": "https://www.linkedin.com/in/example", "wants": ["email", "resume"], "note": "Why they'd like to connect.", "agent": "Claude"}
+
+- wants can include: ${contactItems.map((i) => i.key).join(', ')}. name, email, wants and note are required.
+- The response includes a private status_url. Give it to the person you're acting for; it shows Andrew's answer once he decides (GET it with Accept: application/json for JSON).
+- One request per person. ${connect.perHour} requests per hour from one network. Full format: ${site.url}/api/connect
 
 ## Structured data
 - [Career (JSON Resume)](${site.url}/career.json)

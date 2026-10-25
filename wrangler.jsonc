@@ -10,10 +10,31 @@
   "preview_urls": true,
   // Don't send Wrangler usage telemetry from builds.
   "send_metrics": false,
-  // Phase 1 is a fully static site: no Worker script, just assets.
-  // Phase 3 adds "main" plus run_worker_first for /mcp, /api/* and /r/*.
+
+  // The small server for the Connect flow. It only runs for the paths in
+  // run_worker_first below; every other path is served straight from ./dist.
+  "main": "worker/index.ts",
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "404-page"
-  }
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*", "/connect/status/*"]
+  },
+
+  // Contact requests. Schema in migrations/.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "andrewwimmer-connect",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+
+  // Hourly: delete requests older than 90 days, retry failed Grok Bot pings.
+  "triggers": { "crons": ["17 * * * *"] },
+
+  // Secrets (set in the dashboard, never here): GROK_WEBHOOK_URL,
+  // GROK_WEBHOOK_SECRET, IP_SALT. For local testing, put them in .dev.vars.
+  "observability": { "enabled": true }
 }

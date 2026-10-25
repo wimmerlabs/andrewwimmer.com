@@ -11,9 +11,10 @@ interface Props {
   description?: string;
   current?: 'home' | 'career' | 'library' | 'colophon' | 'connect';
   jsonLd?: Record<string, unknown>;
+  noindex?: boolean;
 }
 
-const { title, description = site.description, current, jsonLd } = Astro.props;
+const { title, description = site.description, current, jsonLd, noindex } = Astro.props;
 const fullTitle = title ? `${title} · ${site.name}` : site.name;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -25,7 +26,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    {noindex ? <meta name="robots" content="noindex, nofollow" /> : <link rel="canonical" href={canonical} />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
