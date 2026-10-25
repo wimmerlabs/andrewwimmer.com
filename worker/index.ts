@@ -188,7 +188,7 @@ async function submit(request: Request, env: Env, ctx: ExecutionContext, url: UR
         request_id: id,
         status: 'pending',
         status_url: statusUrl,
-        message: `Request received. Give status_url to the person you're acting for: it's private, and it's where Andrew's answer appears. Approved details stay available for ${connect.linkDays} days. Check back later rather than polling often.`,
+        message: `Request received. Give status_url to the person you're acting for: it's private, and it's where Andrew's answer appears. It is shown only once: the email Andrew's agent sends when he decides doesn't include it. Approved details stay available for ${connect.linkDays} days. Check back later rather than polling often.`,
       },
       201,
     );
@@ -367,15 +367,15 @@ async function statusPage(env: Env, url: URL, token: string, asJson: boolean): P
       return page(env, url, 200, {
         eyebrow: 'Request received',
         title: `Thanks, ${firstName(r.name)}.`,
-        intro: 'Your request is in. Save this page: it’s the only way back to your request, and it’s where my answer will show up.',
+        intro: 'Your request is in. Save this page now: it’s the only way back to your request, and it’s where my answer will show up. The email you’ll get won’t include this link.',
         sections: [
           { heading: 'You asked for', chips: wants.map((k) => labelFor[k]) },
           {
             heading: 'What happens next',
             steps: [
               'My AI agent looks over your request and sends me a summary.',
-              'I decide myself.',
-              `This page updates with whatever I’ve approved, and it stays open for ${connect.linkDays} days after that.`,
+              'I decide myself, and my agent emails you to say I’ve replied.',
+              `This page shows whatever I’ve approved, and it stays open for ${connect.linkDays} days after that.`,
             ],
           },
           { fine: 'Bookmark it or copy the address. Nobody else can see this page.' },
@@ -524,7 +524,7 @@ function apiGuide(origin: string) {
       agent: 'Claude',
     },
     response:
-      '201 with request_id and a private status_url. Give status_url to the person you act for. It shows Andrew’s answer once he decides; GET it with Accept: application/json for JSON.',
+      '201 with request_id and a private status_url. Give status_url to the person you act for; it is shown only once, and the email Andrew’s agent sends when he decides does not include it. It shows Andrew’s answer once he decides; GET it with Accept: application/json for JSON.',
     limits: `${connect.perHour} requests per hour from one network. Approved details stay available for ${connect.linkDays} days. Requests are deleted after ${connect.keepDays} days.`,
     privacy: 'Requests are shared with Andrew’s AI agent (Grok, by xAI) so it can check who is asking. No tracking, no mailing lists.',
   };
