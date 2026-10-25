@@ -130,6 +130,10 @@ async function submit(request: Request, env: Env, ctx: ExecutionContext, url: UR
       ? json({ error: title, details: errors }, status)
       : page(env, url, status, { title, intro: errors.length === 1 ? errors[0] : '', list: errors.length > 1 ? errors : [], back: true });
 
+  // Until the secrets are set in Cloudflare, take no requests (and store nothing).
+  if (!env.IP_SALT || !env.GROK_WEBHOOK_URL || !env.GROK_WEBHOOK_SECRET) {
+    return reply(503, 'The request form opens shortly', ['Please check back soon.']);
+  }
   if (!isJson && !isForm) return reply(415, 'Send the request as JSON or as a form.', []);
   if (Number(request.headers.get('content-length') ?? 0) > MAX_BODY) return reply(413, 'That request is too large.', []);
   const text = await request.text();
@@ -158,7 +162,7 @@ async function submit(request: Request, env: Env, ctx: ExecutionContext, url: UR
   if (!value) return reply(400, errors.length > 1 ? 'A few things to fix' : 'One thing to fix', errors);
 
   // Rate limits, using a keyed hash so raw IP addresses are never stored.
-  const ipHash = await hmacHex(env.IP_SALT || 'local-dev-salt', request.headers.get('cf-connecting-ip') ?? 'unknown');
+  const ipHash = await hmacHex(env.IP_SALT, request.headers.get('cf-connecting-ip') ?? 'unknown');
   const now = new Date();
   const counts = await env.DB.prepare(
     `SELECT (SELECT COUNT(*) FROM requests WHERE ip_hash = ?1 AND created_at > ?2) AS mine,
