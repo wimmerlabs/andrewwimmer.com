@@ -20,6 +20,8 @@ export const connect = {
   // Spam limits: requests from one network per hour, and site-wide per day.
   perHour: 3,
   perDay: 25,
+  // How many times an approved person can download the resume.
+  maxDownloads: 5,
   // Longest accepted value for each field (characters).
   max: { name: 100, email: 200, company: 120, link: 200, note: 1000, agent: 100 },
 };

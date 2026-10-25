@@ -27,6 +27,8 @@ interface Env {
   CONTACT_SIGNAL?: string;
   CONTACT_TELEGRAM?: string;
   CONTACT_NOSTR?: string;
+  // Private R2 bucket holding the resume PDF (the newest .pdf in it is served).
+  RESUME?: R2Bucket;
 }
 
 type Status = 'pending' | 'approved' | 'declined' | 'revoked' | 'expired';
@@ -52,6 +54,7 @@ interface RequestRow {
 const DAY = 86_400_000;
 const MAX_BODY = 16_384;
 const TOKEN_PATTERN = /^\/connect\/status\/([A-Za-z0-9_-]{43})\/?$/;
+const RESUME_PATTERN = /^\/connect\/status\/([A-Za-z0-9_-]{43})\/resume\/?$/;
 const labelFor = Object.fromEntries(contactItems.map((i) => [i.key, i.label])) as Record<ContactKey, string>;
 
 // Static pages get these from public/_headers. Responses made here don't, so they're
@@ -97,6 +100,11 @@ export default {
       const match = path.match(TOKEN_PATTERN);
       if (match && (request.method === 'GET' || request.method === 'HEAD')) {
         return await statusPage(env, url, match[1], asJson);
+      }
+
+      const resumeMatch = path.match(RESUME_PATTERN);
+      if (resumeMatch && request.method === 'GET') {
+        return await resumeDownload(env, url, resumeMatch[1]);
       }
 
       if (path.startsWith('/api/') || path.startsWith('/connect/status/')) {
@@ -372,7 +380,8 @@ async function statusPage(env: Env, url: URL, token: string, asJson: boolean): P
 
   const status = currentStatus(r);
   const wants = JSON.parse(r.wants) as ContactKey[];
-  const shared = status === 'approved' ? sharedDetails(env, JSON.parse(r.approved_items ?? '[]') as ContactKey[]) : [];
+  const shared =
+    status === 'approved' ? sharedDetails(env, JSON.parse(r.approved_items ?? '[]') as ContactKey[], token) : [];
   if (status === 'approved') await logEvent(env, r.id, 'viewed', asJson ? 'json' : 'page').run();
 
   if (asJson) {
@@ -383,7 +392,7 @@ async function statusPage(env: Env, url: URL, token: string, asJson: boolean): P
       submitted_at: r.created_at,
       ...(status === 'pending' && { message: 'Waiting for Andrew. Check back later.' }),
       ...(status === 'approved' && {
-        shared: Object.fromEntries(shared.map((d) => [d.key, d.value])),
+        shared: Object.fromEntries(shared.map((d) => [d.key, d.key === 'resume' ? `${url.origin}${d.href}` : d.value])),
         open_until: r.expires_at,
       }),
     });
@@ -433,7 +442,14 @@ async function statusPage(env: Env, url: URL, token: string, asJson: boolean): P
         eyebrow: 'Approved',
         title: `Good to meet you, ${firstName(r.name)}.`,
         intro: 'Here’s what I’m sharing. Please keep it to yourself rather than passing it along.',
-        sections: [{ details: shared }, { fine: `This page stays open until ${formatDate(r.expires_at!)}.` }],
+        sections: [
+          { details: shared },
+          {
+            fine: `This page stays open until ${formatDate(r.expires_at!)}.${
+              shared.some((d) => d.key === 'resume') ? ` The resume can be downloaded up to ${connect.maxDownloads} times.` : ''
+            }`,
+          },
+        ],
         fine,
       });
   }
@@ -448,11 +464,11 @@ interface Detail {
   href?: string;
 }
 
-function sharedDetails(env: Env, items: ContactKey[]): Detail[] {
+function sharedDetails(env: Env, items: ContactKey[], token: string): Detail[] {
   return items.map((key) => {
     const label = labelFor[key];
     if (key === 'resume') {
-      return { key, label, value: 'The download link will appear here shortly.' };
+      return { key, label, value: 'Download PDF', href: `/connect/status/${token}/resume` };
     }
     const value = (contactValue(env, key) ?? '').trim();
     if (!value) return { key, label, value: 'I’ll send this to you directly.' };
@@ -474,6 +490,58 @@ function contactValue(env: Env, key: ContactKey): string | undefined {
     nostr: env.CONTACT_NOSTR,
   };
   return key === 'resume' ? undefined : map[key];
+}
+
+// ---------- Resume download ----------
+//
+// GET /connect/status/<token>/resume. Works only while the request is approved for
+// "resume" (so it closes with the page: 14 days, or when revoked), and only
+// connect.maxDownloads times. The file comes from the private R2 bucket and is never
+// public: there is no other way to reach it.
+
+async function latestResume(env: Env): Promise<string | null> {
+  if (!env.RESUME) return null;
+  const { objects } = await env.RESUME.list({ limit: 100 });
+  const pdfs = objects.filter((o) => o.key.toLowerCase().endsWith('.pdf'));
+  pdfs.sort((a, b) => b.uploaded.getTime() - a.uploaded.getTime());
+  return pdfs[0]?.key ?? null;
+}
+
+async function resumeDownload(env: Env, url: URL, token: string): Promise<Response> {
+  const r = await env.DB.prepare('SELECT * FROM requests WHERE token_hash = ?1 OR link_hash = ?1')
+    .bind(await sha256Hex(token))
+    .first<RequestRow>();
+  if (!r) return notFound(env, url);
+
+  const back = { cta: { href: `/connect/status/${token}`, label: 'Back to your page' } };
+  const items = JSON.parse(r.approved_items ?? '[]') as ContactKey[];
+  if (currentStatus(r) !== 'approved' || !items.includes('resume')) {
+    return page(env, url, 403, { eyebrow: 'Resume', title: 'This download isn’t available.', intro: 'The link has closed, or the resume wasn’t part of this request.', ...back });
+  }
+
+  const used = await env.DB.prepare("SELECT COUNT(*) AS n FROM events WHERE request_id = ?1 AND kind = 'downloaded'")
+    .bind(r.id)
+    .first<{ n: number }>();
+  if ((used?.n ?? 0) >= connect.maxDownloads) {
+    return page(env, url, 429, { eyebrow: 'Resume', title: 'Download limit reached.', intro: `This link allows ${connect.maxDownloads} downloads, and they’ve all been used.`, ...back });
+  }
+
+  const key = await latestResume(env);
+  const file = key ? await env.RESUME!.get(key) : null;
+  if (!file) {
+    console.error('resume download: no PDF in the bucket');
+    return page(env, url, 503, { eyebrow: 'Resume', title: 'The resume isn’t available right now.', intro: 'Please try again later.', ...back });
+  }
+
+  await logEvent(env, r.id, 'downloaded', `${(used?.n ?? 0) + 1} of ${connect.maxDownloads}`).run();
+  return new Response(file.body, {
+    headers: {
+      ...SECURITY_HEADERS,
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': 'attachment; filename="Andrew-Wimmer-Resume.pdf"',
+      'Content-Length': String(file.size),
+    },
+  });
 }
 
 // ---------- Grok Bot's endpoints ----------
@@ -576,8 +644,8 @@ async function botDecide(request: Request, env: Env): Promise<Response> {
   if (notAsked.length) {
     return json({ error: `They didn't ask for ${notAsked.join(', ')}. They asked for: ${wants.join(', ')}.` }, 400);
   }
-  // The resume download arrives in step 3 (R2); until then it can't be approved.
-  const notSetUp = (items as ContactKey[]).filter((k) => (k === 'resume' ? true : !contactValue(env, k)?.trim()));
+  const hasResume = (items as ContactKey[]).includes('resume') ? Boolean(await latestResume(env)) : true;
+  const notSetUp = (items as ContactKey[]).filter((k) => (k === 'resume' ? !hasResume : !contactValue(env, k)?.trim()));
   if (notSetUp.length) {
     return json({ error: `${notSetUp.join(', ')} isn't set up on the site yet, so it can't be shared. Nothing changed.` }, 400);
   }

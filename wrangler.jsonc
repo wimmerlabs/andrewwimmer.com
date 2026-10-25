@@ -31,6 +31,10 @@
     }
   ],
 
+  // Private storage for the resume PDF. Never public: the Worker serves it only to
+  // approved requesters. Upload a new PDF in the dashboard; the newest one is used.
+  "r2_buckets": [{ "binding": "RESUME", "bucket_name": "andrewwimmer-private" }],
+
   // Hourly: delete requests older than 90 days, retry failed Grok Bot pings.
   "triggers": { "crons": ["17 * * * *"] },
 
