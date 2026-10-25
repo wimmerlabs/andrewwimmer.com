@@ -43,7 +43,7 @@ Andrew shares his contact details and resume only by request: his AI agent revie
 {"name": "Jordan Lee", "email": "jordan@example.com", "company": "Example Co", "link": "https://www.linkedin.com/in/example", "wants": ["email", "resume"], "note": "Why they'd like to connect.", "agent": "Claude"}
 
 - wants can include: ${contactItems.map((i) => i.key).join(', ')}. name, email, wants and note are required.
-- The response includes a private status_url. Give it to the person you're acting for: it's shown only once, and the email Andrew's agent sends when he decides doesn't include it. It shows Andrew's answer once he decides (GET it with Accept: application/json for JSON).
+- The response includes a private status_url. Give it to the person you're acting for: if Andrew approves, his agent also emails a fresh link to the address given. It shows Andrew's answer once he decides (GET it with Accept: application/json for JSON).
 - One request per person. ${connect.perHour} requests per hour from one network. Full format: ${site.url}/api/connect
 
 ## Structured data

@@ -210,7 +210,7 @@ async function submit(request: Request, env: Env, ctx: ExecutionContext, url: UR
         request_id: id,
         status: 'pending',
         status_url: statusUrl,
-        message: `Request received. Give status_url to the person you're acting for: it's private, and it's where Andrew's answer appears. It is shown only once: the email Andrew's agent sends when he decides doesn't include it. Approved details stay available for ${connect.linkDays} days. Check back later rather than polling often.`,
+        message: `Request received. Give status_url to the person you're acting for: it's private, and it's where Andrew's answer appears. If Andrew approves, his agent also emails a fresh link to the address given. Approved details stay available for ${connect.linkDays} days. Check back later rather than polling often.`,
       },
       201,
     );
@@ -364,7 +364,8 @@ async function signWebhook(secret: string, id: string, timestamp: string, body: 
 // ---------- The requester's status page ----------
 
 async function statusPage(env: Env, url: URL, token: string, asJson: boolean): Promise<Response> {
-  const r = await env.DB.prepare('SELECT * FROM requests WHERE token_hash = ?1')
+  // Either the link shown at submit time, or the fresh one from the approval email.
+  const r = await env.DB.prepare('SELECT * FROM requests WHERE token_hash = ?1 OR link_hash = ?1')
     .bind(await sha256Hex(token))
     .first<RequestRow>();
   if (!r) return asJson ? json({ error: 'Not found. The link may be mistyped, or the request was deleted.' }, 404) : notFound(env, url);
@@ -396,14 +397,14 @@ async function statusPage(env: Env, url: URL, token: string, asJson: boolean): P
       return page(env, url, 200, {
         eyebrow: 'Request received',
         title: `Thanks, ${firstName(r.name)}.`,
-        intro: 'Your request is in. Save this page now: it’s the only way back to your request, and it’s where my answer will show up. The email you’ll get won’t include this link.',
+        intro: 'Your request is in. Save this page now: it’s the only way back to your request, and it’s where my answer will show up. If I approve, my agent also emails you a link.',
         sections: [
           { heading: 'You asked for', chips: wants.map((k) => labelFor[k]) },
           {
             heading: 'What happens next',
             steps: [
               'My AI agent looks over your request and sends me a summary.',
-              'I decide myself, and my agent emails you to say I’ve replied.',
+              'I decide myself, and my agent emails you my answer.',
               `This page shows whatever I’ve approved, and it stays open for ${connect.linkDays} days after that.`,
             ],
           },
@@ -581,27 +582,32 @@ async function botDecide(request: Request, env: Env): Promise<Response> {
     return json({ error: `${notSetUp.join(', ')} isn't set up on the site yet, so it can't be shared. Nothing changed.` }, 400);
   }
 
+  // A fresh private link for the approval email. The requester's original link keeps
+  // working too; both open the same page, and every view is logged.
+  const linkToken = randomToken();
   const expires = new Date(now.getTime() + connect.linkDays * DAY).toISOString();
   const done = await env.DB.prepare(
-    `UPDATE requests SET status = 'approved', approved_items = ?2, decided_at = ?3, expires_at = ?4
+    `UPDATE requests SET status = 'approved', approved_items = ?2, decided_at = ?3, expires_at = ?4, link_hash = ?5
      WHERE id = ?1 AND status = 'pending'`,
   )
-    .bind(id, JSON.stringify(items), now.toISOString(), expires)
+    .bind(id, JSON.stringify(items), now.toISOString(), expires, await sha256Hex(linkToken))
     .run();
   if (!done.meta.changes) return json({ error: 'It changed while deciding. Check it again.' }, 409);
   await logEvent(env, id, 'approved', (items as ContactKey[]).join(',')).run();
+  const link = `${new URL(request.url).origin}/connect/status/${linkToken}`;
   return json({
     request_id: id,
     status: 'approved',
     approved: (items as ContactKey[]).map((k) => labelFor[k]),
     open_until: expires,
-    email: replyEmail(r, 'approved'),
+    email: replyEmail(r, 'approved', link),
+    reminder: 'Never open the link in this email yourself. It is only for the requester.',
   });
 }
 
 // The only emails the bot sends, word for word. Nothing typed by the requester
-// goes in except a cleaned-up first name.
-function replyEmail(r: RequestRow, outcome: 'approved' | 'declined') {
+// goes in except a cleaned-up first name. Only approvals carry a link.
+function replyEmail(r: RequestRow, outcome: 'approved' | 'declined', link?: string) {
   const name = safeFirstName(r.name);
   const sign = 'Andrew Wimmer\nandrewwimmer.com\n\n(Sent by Andrew’s AI agent. This is a one-time message about a request made with this email address. If that wasn’t you, you can ignore it.)';
   return {
@@ -609,7 +615,7 @@ function replyEmail(r: RequestRow, outcome: 'approved' | 'declined') {
     subject: 'Andrew Wimmer replied to your request',
     body:
       outcome === 'approved'
-        ? `Hi ${name},\n\nI replied to the request you sent through andrewwimmer.com. Open the private link you saved when you sent it to see what I've shared. It stays open for ${connect.linkDays} days.\n\nIf you didn't save the link, you're welcome to send a new request at https://andrewwimmer.com/connect/\n\n${sign}`
+        ? `Hi ${name},\n\nThanks for your request through andrewwimmer.com. I've shared what you asked for on this private page:\n\n${link}\n\nIt stays open for ${connect.linkDays} days. Please keep the link to yourself.\n\n${sign}`
         : `Hi ${name},\n\nThanks for reaching out through andrewwimmer.com. I'm not sharing these details right now, but I appreciate you asking.\n\n${sign}`,
   };
 }
@@ -750,7 +756,7 @@ function apiGuide(origin: string) {
       agent: 'Claude',
     },
     response:
-      '201 with request_id and a private status_url. Give status_url to the person you act for; it is shown only once, and the email Andrew’s agent sends when he decides does not include it. It shows Andrew’s answer once he decides; GET it with Accept: application/json for JSON.',
+      '201 with request_id and a private status_url. Give status_url to the person you act for; if Andrew approves, his agent also emails a fresh link to the address given. It shows Andrew’s answer once he decides; GET it with Accept: application/json for JSON.',
     limits: `${connect.perHour} requests per hour from one network. Approved details stay available for ${connect.linkDays} days. Requests are deleted after ${connect.keepDays} days.`,
     privacy: 'Requests are shared with Andrew’s AI agent (Grok, by xAI) so it can check who is asking. No tracking, no mailing lists.',
   };
