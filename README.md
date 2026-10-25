@@ -25,6 +25,10 @@ Edit a file, push, and the site rebuilds.
 
 **Adding a book:** add it to `books.json`, then run `npm run covers`. The script finds the cover on [Open Library](https://openlibrary.org), saves a small WebP copy to `public/images/covers/`, and records the cover and Open Library link in `books.json`. Check the cover is the right edition; if not, set `coverId` by hand (or `noCover: true` to keep the generated cover) and run it again.
 
+## Link preview image
+
+`public/og.jpg` is the card shown when the site is shared (LinkedIn, iMessage, Slack). It's rendered from HTML by `scripts/make-og.mjs` using the site's fonts and headshot. Re-run it after changing the name, title or photo (needs Playwright, which isn't a project dependency).
+
 ## Local development
 
 ```sh
