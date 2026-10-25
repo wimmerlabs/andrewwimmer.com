@@ -34,7 +34,8 @@
   // Hourly: delete requests older than 90 days, retry failed Grok Bot pings.
   "triggers": { "crons": ["17 * * * *"] },
 
-  // Secrets (set in the dashboard, never here): GROK_WEBHOOK_URL,
-  // GROK_WEBHOOK_SECRET, IP_SALT. For local testing, put them in .dev.vars.
+  // Secrets (set in the dashboard, never here): GROK_WEBHOOK_URL, GROK_WEBHOOK_SECRET,
+  // IP_SALT, BOT_TOKEN, and CONTACT_EMAIL / _PHONE / _SIGNAL / _TELEGRAM / _NOSTR.
+  // For local testing, put fake values in .dev.vars (git-ignored).
   "observability": { "enabled": true }
 }

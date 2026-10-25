@@ -1033,6 +1033,39 @@ button.btn {
   font-weight: 500;
   cursor: pointer;
 }
+/* Approved details on a requester's status page */
+.details {
+  margin: 0;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+.details > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  padding: 18px 24px;
+}
+.details > div + div {
+  border-top: 1px solid var(--line-2);
+}
+.details dt {
+  flex: 0 0 120px;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--faint);
+}
+.details dd {
+  flex: 1 1 240px;
+  min-width: 0;
+  margin: 0;
+  color: var(--text-strong);
+  overflow-wrap: anywhere;
+}
+.details a {
+  color: var(--accent);
+}
 .prose .chips {
   padding: 0;
 }
