@@ -34,6 +34,9 @@ export const projects = [
   },
 ];
 
-export const interests = ['Golf', 'Boating', 'Okoboji', 'Privacy tech', 'Bitcoin'];
+// Always shown in alphabetical order, so new ones can be added anywhere in the list.
+export const interests = ['AI', 'Bitcoin', 'Boating', 'Golf', 'Investing', 'Okoboji', 'Privacy tech'].sort((a, b) =>
+  a.localeCompare(b, 'en', { sensitivity: 'base' }),
+);
 
 export const contactOptions = ['Email', 'Phone', 'Signal', 'Telegram', 'Nostr', 'Resume'];
