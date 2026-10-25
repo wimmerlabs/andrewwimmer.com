@@ -437,6 +437,14 @@
       "openLibrary": "https://openlibrary.org/works/OL2355834W",
       "cover": "/images/covers/high-output-management.webp",
       "coverId": 421244
+    },
+    {
+      "title": "Thinking in Bets",
+      "author": "Annie Duke",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL19736287W",
+      "cover": "/images/covers/thinking-in-bets.webp",
+      "coverId": 8792782
     }
   ]
 }
