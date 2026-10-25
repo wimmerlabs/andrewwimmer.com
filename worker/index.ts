@@ -570,7 +570,8 @@ async function botDecide(request: Request, env: Env): Promise<Response> {
   if (notAsked.length) {
     return json({ error: `They didn't ask for ${notAsked.join(', ')}. They asked for: ${wants.join(', ')}.` }, 400);
   }
-  const notSetUp = (items as ContactKey[]).filter((k) => k !== 'resume' && !contactValue(env, k)?.trim());
+  // The resume download arrives in step 3 (R2); until then it can't be approved.
+  const notSetUp = (items as ContactKey[]).filter((k) => (k === 'resume' ? true : !contactValue(env, k)?.trim()));
   if (notSetUp.length) {
     return json({ error: `${notSetUp.join(', ')} isn't set up on the site yet, so it can't be shared. Nothing changed.` }, 400);
   }
