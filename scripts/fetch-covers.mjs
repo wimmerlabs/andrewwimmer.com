@@ -13,7 +13,7 @@
 //   "coverId":     12345  (optional manual override: an Open Library cover ID)
 //   "noCover":     true   (optional: keep the generated cover)
 
-import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
 import sharp from 'sharp';
 
 const BOOKS = new URL('../src/data/books.json', import.meta.url);
@@ -101,6 +101,21 @@ for (const book of [...data.library, ...data.antilibrary]) {
     await sleep(400);
   } catch (err) {
     console.log(`ERROR    ${book.title}: ${err.message}`);
+  }
+}
+
+// Local pass (no network): record each cover's size so the page can reserve
+// space for it, and make a 200px-wide copy for small spots like the home page.
+for (const book of [...data.library, ...data.antilibrary]) {
+  if (!book.cover) continue;
+  const full = new URL(book.cover.replace(/^\//, ''), new URL('../public/', import.meta.url));
+  const small = new URL(full.pathname.replace(/\.webp$/, '-sm.webp'), 'file://');
+  const meta = await sharp(full.pathname).metadata();
+  book.coverSize = [meta.width, meta.height];
+  try {
+    await access(small.pathname);
+  } catch {
+    await sharp(full.pathname).resize({ width: 200 }).webp({ quality: 80 }).toFile(small.pathname);
   }
 }
 

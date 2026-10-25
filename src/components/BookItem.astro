@@ -6,21 +6,32 @@ interface Props {
     title: string;
     author: string;
     cover?: string;
+    coverSize?: number[];
     openLibrary?: string;
     why?: string | null;
   };
   index?: number;
   unread?: boolean;
+  /** Heading level for the title, so pages keep a correct outline (h1 → h2 → h3). */
+  level?: 2 | 3;
 }
-const { book, index = 0, unread = false } = Astro.props;
+const { book, index = 0, unread = false, level = 3 } = Astro.props;
 const Wrapper = book.openLibrary ? 'a' : 'div';
 const linkProps = book.openLibrary ? { href: book.openLibrary, rel: 'noopener' } : {};
+const Heading = `h${level}`;
 ---
 
 <li class="book">
   <Wrapper class="book__link" {...linkProps}>
-    <BookCover title={book.title.split(':')[0]} author={book.author} src={book.cover} index={index} unread={unread} />
-    <h3 class="book__title">{book.title}</h3>
+    <BookCover
+      title={book.title.split(':')[0]}
+      author={book.author}
+      src={book.cover}
+      size={book.coverSize}
+      index={index}
+      unread={unread}
+    />
+    <Heading class="book__title">{book.title}</Heading>
   </Wrapper>
   <p class="book__author">{book.author}</p>
   {book.why && <p class="book__why">{book.why}</p>}

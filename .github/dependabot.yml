@@ -1,0 +1,12 @@
+# Weekly pull requests for dependency updates (Astro, Wrangler, fonts, sharp).
+# Grouped into one PR so updates are easy to review; nothing merges on its own.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      dependencies:
+        patterns: ['*']
+    open-pull-requests-limit: 3

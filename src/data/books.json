@@ -18,7 +18,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL20046443W",
       "coverId": 13098570,
-      "cover": "/images/covers/the-daily-stoic.webp"
+      "cover": "/images/covers/the-daily-stoic.webp",
+      "coverSize": [
+        321,
+        500
+      ]
     },
     {
       "title": "Principles: Life and Work",
@@ -28,7 +32,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL18147675W",
       "coverId": 8315355,
-      "cover": "/images/covers/principles.webp"
+      "cover": "/images/covers/principles.webp",
+      "coverSize": [
+        333,
+        500
+      ]
     },
     {
       "title": "The Challenger Sale",
@@ -38,7 +46,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL15981317W",
       "cover": "/images/covers/the-challenger-sale.webp",
-      "coverId": 7970492
+      "coverId": 7970492,
+      "coverSize": [
+        321,
+        500
+      ]
     },
     {
       "title": "Broken Money",
@@ -48,7 +60,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL36719480W",
       "cover": "/images/covers/broken-money.webp",
-      "coverId": 15153544
+      "coverId": 15153544,
+      "coverSize": [
+        312,
+        500
+      ]
     },
     {
       "title": "12 Rules for Life",
@@ -57,7 +73,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL17837119W",
       "cover": "/images/covers/12-rules-for-life.webp",
-      "coverId": 8131760
+      "coverId": 8131760,
+      "coverSize": [
+        333,
+        500
+      ]
     },
     {
       "title": "Beyond Order",
@@ -66,7 +86,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL23612724W",
       "cover": "/images/covers/beyond-order.webp",
-      "coverId": 10517194
+      "coverId": 10517194,
+      "coverSize": [
+        400,
+        400
+      ]
     },
     {
       "title": "The One Year Uncommon Life Daily Challenge",
@@ -75,7 +99,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL16444846W",
       "cover": "/images/covers/the-one-year-uncommon-life-daily-challenge.webp",
-      "coverId": 7002538
+      "coverId": 7002538,
+      "coverSize": [
+        128,
+        192
+      ]
     },
     {
       "title": "Wisdom for Each Day",
@@ -84,7 +112,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL15093003W",
       "cover": "/images/covers/wisdom-for-each-day.webp",
-      "coverId": 8073789
+      "coverId": 8073789,
+      "coverSize": [
+        287,
+        500
+      ]
     },
     {
       "title": "Think Again",
@@ -93,7 +125,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL22484556W",
       "coverId": 10660412,
-      "cover": "/images/covers/think-again.webp"
+      "cover": "/images/covers/think-again.webp",
+      "coverSize": [
+        331,
+        500
+      ]
     },
     {
       "title": "Can't Hurt Me",
@@ -102,7 +138,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL18108064W",
       "cover": "/images/covers/can-t-hurt-me.webp",
-      "coverId": 8305903
+      "coverId": 8305903,
+      "coverSize": [
+        324,
+        500
+      ]
     },
     {
       "title": "Building a Second Brain",
@@ -111,7 +151,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL26417584W",
       "cover": "/images/covers/building-a-second-brain.webp",
-      "coverId": 12372866
+      "coverId": 12372866,
+      "coverSize": [
+        331,
+        500
+      ]
     },
     {
       "title": "Meditations",
@@ -120,7 +164,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL1317211W",
       "cover": "/images/covers/meditations.webp",
-      "coverId": 211529
+      "coverId": 211529,
+      "coverSize": [
+        304,
+        500
+      ]
     },
     {
       "title": "Integrity Selling for the 21st Century",
@@ -129,7 +177,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL2660161W",
       "cover": "/images/covers/integrity-selling-for-the-21st-century.webp",
-      "coverId": 242542
+      "coverId": 242542,
+      "coverSize": [
+        313,
+        475
+      ]
     },
     {
       "title": "Little Red Book of Selling",
@@ -138,7 +190,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL7952031W",
       "cover": "/images/covers/little-red-book-of-selling.webp",
-      "coverId": 931984
+      "coverId": 931984,
+      "coverSize": [
+        313,
+        500
+      ]
     },
     {
       "title": "Rhinoceros Success",
@@ -147,7 +203,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL16568854W",
       "cover": "/images/covers/rhinoceros-success.webp",
-      "coverId": 12550519
+      "coverId": 12550519,
+      "coverSize": [
+        329,
+        500
+      ]
     },
     {
       "title": "Leadership and the One Minute Manager",
@@ -156,7 +216,11 @@
       "why": null,
       "coverId": 13639896,
       "openLibrary": "https://openlibrary.org/works/OL8035383W",
-      "cover": "/images/covers/leadership-and-the-one-minute-manager.webp"
+      "cover": "/images/covers/leadership-and-the-one-minute-manager.webp",
+      "coverSize": [
+        337,
+        500
+      ]
     },
     {
       "title": "The Ten-Day MBA",
@@ -165,7 +229,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL3919524W",
       "cover": "/images/covers/the-ten-day-mba.webp",
-      "coverId": 431263
+      "coverId": 431263,
+      "coverSize": [
+        322,
+        475
+      ]
     },
     {
       "title": "The 10% Entrepreneur",
@@ -174,7 +242,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL20033305W",
       "cover": "/images/covers/the-10-entrepreneur.webp",
-      "coverId": 12753315
+      "coverId": 12753315,
+      "coverSize": [
+        297,
+        500
+      ]
     },
     {
       "title": "Helping Surgeons Treat Their Patients Better",
@@ -190,7 +262,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL18819818W",
       "cover": "/images/covers/never-split-the-difference.webp",
-      "coverId": 8365942
+      "coverId": 8365942,
+      "coverSize": [
+        330,
+        500
+      ]
     },
     {
       "title": "How to Win Friends and Influence People",
@@ -199,7 +275,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL1063267W",
       "coverId": 15262530,
-      "cover": "/images/covers/how-to-win-friends-and-influence-people.webp"
+      "cover": "/images/covers/how-to-win-friends-and-influence-people.webp",
+      "coverSize": [
+        303,
+        500
+      ]
     },
     {
       "title": "The Intelligent Entrepreneur",
@@ -208,7 +288,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL18623042W",
       "cover": "/images/covers/the-intelligent-entrepreneur.webp",
-      "coverId": 9562817
+      "coverId": 9562817,
+      "coverSize": [
+        320,
+        500
+      ]
     },
     {
       "title": "The Hidden Cost of Money",
@@ -224,7 +308,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL20914963W",
       "cover": "/images/covers/capital-wars.webp",
-      "coverId": 10282433
+      "coverId": 10282433,
+      "coverSize": [
+        332,
+        500
+      ]
     },
     {
       "title": "The Most Important Thing",
@@ -233,7 +321,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL16001857W",
       "cover": "/images/covers/the-most-important-thing.webp",
-      "coverId": 10001222
+      "coverId": 10001222,
+      "coverSize": [
+        322,
+        500
+      ]
     },
     {
       "title": "The Dao of Capital",
@@ -242,7 +334,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL20734893W",
       "cover": "/images/covers/the-dao-of-capital.webp",
-      "coverId": 9426650
+      "coverId": 9426650,
+      "coverSize": [
+        336,
+        500
+      ]
     },
     {
       "title": "The Big Print",
@@ -251,7 +347,11 @@
       "why": null,
       "coverId": 15141789,
       "openLibrary": "https://openlibrary.org/works/OL42457869W",
-      "cover": "/images/covers/the-big-print.webp"
+      "cover": "/images/covers/the-big-print.webp",
+      "coverSize": [
+        333,
+        500
+      ]
     },
     {
       "title": "Bitcoin Age",
@@ -267,7 +367,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL26416709W",
       "cover": "/images/covers/security-analysis.webp",
-      "coverId": 12371662
+      "coverId": 12371662,
+      "coverSize": [
+        333,
+        500
+      ]
     },
     {
       "title": "The Price of Tomorrow",
@@ -276,7 +380,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL21162749W",
       "cover": "/images/covers/the-price-of-tomorrow.webp",
-      "coverId": 10328839
+      "coverId": 10328839,
+      "coverSize": [
+        304,
+        500
+      ]
     },
     {
       "title": "The Psychology of Money",
@@ -285,7 +393,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL21640039W",
       "cover": "/images/covers/the-psychology-of-money.webp",
-      "coverId": 10389354
+      "coverId": 10389354,
+      "coverSize": [
+        319,
+        500
+      ]
     },
     {
       "title": "The Creature from Jekyll Island",
@@ -294,7 +406,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL3007423W",
       "cover": "/images/covers/the-creature-from-jekyll-island.webp",
-      "coverId": 703969
+      "coverId": 703969,
+      "coverSize": [
+        329,
+        500
+      ]
     },
     {
       "title": "The Bitcoin Standard",
@@ -303,7 +419,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL20984004W",
       "coverId": 11936602,
-      "cover": "/images/covers/the-bitcoin-standard.webp"
+      "cover": "/images/covers/the-bitcoin-standard.webp",
+      "coverSize": [
+        330,
+        500
+      ]
     },
     {
       "title": "Layered Money",
@@ -312,7 +432,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL24783194W",
       "cover": "/images/covers/layered-money.webp",
-      "coverId": 11540684
+      "coverId": 11540684,
+      "coverSize": [
+        340,
+        500
+      ]
     },
     {
       "title": "The Fourth Turning",
@@ -321,7 +445,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL3289628W",
       "cover": "/images/covers/the-fourth-turning.webp",
-      "coverId": 367879
+      "coverId": 367879,
+      "coverSize": [
+        316,
+        475
+      ]
     },
     {
       "title": "The Sovereign Individual",
@@ -330,7 +458,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL3350985W",
       "cover": "/images/covers/the-sovereign-individual.webp",
-      "coverId": 425227
+      "coverId": 425227,
+      "coverSize": [
+        314,
+        475
+      ]
     }
   ],
   "antilibrary": [
@@ -340,7 +472,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL2497175W",
       "cover": "/images/covers/the-hero-with-a-thousand-faces.webp",
-      "coverId": 443668
+      "coverId": 443668,
+      "coverSize": [
+        329,
+        500
+      ]
     },
     {
       "title": "The Lessons of History",
@@ -348,7 +484,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL1073956W",
       "cover": "/images/covers/the-lessons-of-history.webp",
-      "coverId": 7240225
+      "coverId": 7240225,
+      "coverSize": [
+        300,
+        300
+      ]
     },
     {
       "title": "Maps of Meaning",
@@ -356,7 +496,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL1954267W",
       "cover": "/images/covers/maps-of-meaning.webp",
-      "coverId": 268877
+      "coverId": 268877,
+      "coverSize": [
+        376,
+        475
+      ]
     },
     {
       "title": "We Who Wrestle with God",
@@ -364,7 +508,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL37837176W",
       "cover": "/images/covers/we-who-wrestle-with-god.webp",
-      "coverId": 14832762
+      "coverId": 14832762,
+      "coverSize": [
+        324,
+        500
+      ]
     },
     {
       "title": "Lila",
@@ -372,7 +520,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL827364W",
       "cover": "/images/covers/lila.webp",
-      "coverId": 13011756
+      "coverId": 13011756,
+      "coverSize": [
+        329,
+        500
+      ]
     },
     {
       "title": "Get Better at Anything",
@@ -380,7 +532,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL37615545W",
       "cover": "/images/covers/get-better-at-anything.webp",
-      "coverId": 14649834
+      "coverId": 14649834,
+      "coverSize": [
+        329,
+        500
+      ]
     },
     {
       "title": "Ultralearning",
@@ -388,7 +544,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL20846121W",
       "cover": "/images/covers/ultralearning.webp",
-      "coverId": 10156205
+      "coverId": 10156205,
+      "coverSize": [
+        319,
+        500
+      ]
     },
     {
       "title": "The Power of Awareness",
@@ -396,7 +556,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL26439812W",
       "coverId": 12461386,
-      "cover": "/images/covers/the-power-of-awareness.webp"
+      "cover": "/images/covers/the-power-of-awareness.webp",
+      "coverSize": [
+        317,
+        500
+      ]
     },
     {
       "title": "Altered Traits",
@@ -404,7 +568,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL19719481W",
       "cover": "/images/covers/altered-traits.webp",
-      "coverId": 9253925
+      "coverId": 9253925,
+      "coverSize": [
+        250,
+        375
+      ]
     },
     {
       "title": "Zero to One",
@@ -412,7 +580,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL17078706W",
       "coverId": 10240969,
-      "cover": "/images/covers/zero-to-one.webp"
+      "cover": "/images/covers/zero-to-one.webp",
+      "coverSize": [
+        332,
+        500
+      ]
     },
     {
       "title": "Your Next Five Moves",
@@ -420,7 +592,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL21679891W",
       "cover": "/images/covers/your-next-five-moves.webp",
-      "coverId": 10961423
+      "coverId": 10961423,
+      "coverSize": [
+        328,
+        500
+      ]
     },
     {
       "title": "The Hard Thing About Hard Things",
@@ -428,7 +604,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL16818208W",
       "cover": "/images/covers/the-hard-thing-about-hard-things.webp",
-      "coverId": 7279515
+      "coverId": 7279515,
+      "coverSize": [
+        124,
+        187
+      ]
     },
     {
       "title": "High Output Management",
@@ -436,7 +616,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL2355834W",
       "cover": "/images/covers/high-output-management.webp",
-      "coverId": 421244
+      "coverId": 421244,
+      "coverSize": [
+        301,
+        475
+      ]
     },
     {
       "title": "Thinking in Bets",
@@ -444,7 +628,11 @@
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL19736287W",
       "cover": "/images/covers/thinking-in-bets.webp",
-      "coverId": 8792782
+      "coverId": 8792782,
+      "coverSize": [
+        333,
+        500
+      ]
     }
   ]
 }

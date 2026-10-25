@@ -6,16 +6,37 @@ interface Props {
   title: string;
   author: string;
   src?: string;
+  size?: number[];
+  sizes?: string;
   index?: number;
   unread?: boolean;
 }
-const { title, author, src, index = 0, unread = false } = Astro.props;
+const {
+  title,
+  author,
+  src,
+  size,
+  sizes = '(max-width: 640px) 45vw, 200px',
+  index = 0,
+  unread = false,
+} = Astro.props;
+const small = src?.replace(/\.webp$/, '-sm.webp');
+const srcset = src && size ? `${small} 200w, ${src} ${size[0]}w` : undefined;
 ---
 
 {
   src ? (
     <div class:list={['cover-frame', { 'cover-frame--unread': unread }]}>
-      <img src={src} alt="" loading="lazy" decoding="async" />
+      <img
+        src={src}
+        srcset={srcset}
+        sizes={srcset ? sizes : undefined}
+        width={size?.[0]}
+        height={size?.[1]}
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
     </div>
   ) : (
     <div class:list={['cover', unread ? 'cover--unread' : `cover--${index % 6}`]} aria-hidden="true">

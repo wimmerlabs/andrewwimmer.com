@@ -22,7 +22,7 @@ import books from '../data/books.json';
 
     <section class="shelf" aria-label="Unread books">
       <ul class="book-grid">
-        {books.antilibrary.map((b) => <BookItem book={b} unread />)}
+        {books.antilibrary.map((b) => <BookItem book={b} unread level={2} />)}
       </ul>
     </section>
 
