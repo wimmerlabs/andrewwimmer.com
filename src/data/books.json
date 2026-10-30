@@ -53,23 +53,10 @@
       ]
     },
     {
-      "title": "Broken Money",
-      "author": "Lyn Alden",
-      "shelf": "Favorites",
-      "homepage": true,
-      "why": null,
-      "openLibrary": "https://openlibrary.org/works/OL36719480W",
-      "cover": "/images/covers/broken-money.webp",
-      "coverId": 15153544,
-      "coverSize": [
-        312,
-        500
-      ]
-    },
-    {
       "title": "12 Rules for Life",
       "author": "Jordan B. Peterson",
-      "shelf": "Mindset and meaning",
+      "shelf": "Favorites",
+      "homepage": true,
       "why": null,
       "openLibrary": "https://openlibrary.org/works/OL17837119W",
       "cover": "/images/covers/12-rules-for-life.webp",
@@ -291,6 +278,19 @@
       "coverId": 9562817,
       "coverSize": [
         320,
+        500
+      ]
+    },
+    {
+      "title": "Broken Money",
+      "author": "Lyn Alden",
+      "shelf": "Money and markets",
+      "why": null,
+      "openLibrary": "https://openlibrary.org/works/OL36719480W",
+      "cover": "/images/covers/broken-money.webp",
+      "coverId": 15153544,
+      "coverSize": [
+        312,
         500
       ]
     },
