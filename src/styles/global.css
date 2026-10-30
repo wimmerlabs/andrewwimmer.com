@@ -560,6 +560,12 @@ ol {
   text-transform: uppercase;
   color: #f1eee6;
 }
+/* Drawn-cover text comes from data-text, so it isn't page text: the caption below
+   the cover is the only copy that reader mode, copy-paste and AI readers see. */
+.cover__title::before,
+.cover__author::before {
+  content: attr(data-text);
+}
 .cover--0 { background: #1f6f66; }
 .cover--1 { background: #7a3434; }
 .cover--2 { background: #2b3b5c; }

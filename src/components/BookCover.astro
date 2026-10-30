@@ -40,8 +40,9 @@ const srcset = src && size ? `${small} 200w, ${src} ${size[0]}w` : undefined;
     </div>
   ) : (
     <div class:list={['cover', unread ? 'cover--unread' : `cover--${index % 6}`]} aria-hidden="true">
-      <p class="cover__title">{title}</p>
-      <p class="cover__author">{author}</p>
+      {/* Text is drawn by CSS (content: attr(data-text)) so text-only readers don't see the title twice. */}
+      <p class="cover__title" data-text={title}></p>
+      <p class="cover__author" data-text={author}></p>
     </div>
   )
 }
