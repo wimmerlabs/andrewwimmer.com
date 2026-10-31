@@ -9,6 +9,7 @@ interface Props {
     coverSize?: number[];
     openLibrary?: string;
     why?: string | null;
+    mustRead?: boolean;
   };
   index?: number;
   unread?: boolean;
@@ -34,5 +35,6 @@ const Heading = `h${level}`;
     <Heading class="book__title">{book.title}</Heading>
   </Wrapper>
   <p class="book__author">{book.author}</p>
+  {book.mustRead && <p class="book__must"><span aria-hidden="true">★ </span>Must read</p>}
   {book.why && <p class="book__why">{book.why}</p>}
 </li>

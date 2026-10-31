@@ -49,6 +49,8 @@ const check = async (book, list, i) => {
     if (seen.has(k)) errors.push(`${where}: duplicate of ${seen.get(k)}`);
     else seen.set(k, where);
   }
+  if ('mustRead' in book && typeof book.mustRead !== 'boolean') errors.push(`${where}: mustRead must be true or false`);
+  if (list === 'antilibrary' && book.mustRead) errors.push(`${where}: mustRead is only for books on the Library`);
   if (book.cover) {
     try {
       await access(new URL(book.cover.replace(/^\//, ''), publicDir));

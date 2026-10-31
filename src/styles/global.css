@@ -750,6 +750,16 @@ ol {
   line-height: 1.4;
   color: var(--faint);
 }
+.book__must {
+  margin-top: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
 .book__why {
   margin-top: 10px;
   font-size: 15px;
