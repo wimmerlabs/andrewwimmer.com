@@ -1,5 +1,6 @@
 // Small bits of site content that don't have their own JSON file yet.
 
+import { execSync } from 'node:child_process';
 import { contactItems } from './connect';
 
 export const site = {
@@ -12,8 +13,22 @@ export const site = {
     github: 'https://github.com/wimmerlabs',
     repo: 'https://github.com/wimmerlabs/andrewwimmer.com',
   },
-  updated: '2026-10-24',
+  updated: lastUpdated(),
 };
+
+// The footer's "Updated" date: the day of the latest commit, read from git at build
+// time, so it moves on its own whenever a change goes live. Shown in Central time.
+// Falls back to the build day if git isn't available.
+function lastUpdated(): string {
+  let when = new Date();
+  try {
+    const seconds = Number(execSync('git log -1 --format=%ct', { encoding: 'utf8' }).trim());
+    if (seconds > 0) when = new Date(seconds * 1000);
+  } catch {
+    // No git history in this build: keep the build day.
+  }
+  return when.toLocaleDateString('en-CA', { timeZone: 'America/Chicago' });
+}
 
 export const projects = [
   {
