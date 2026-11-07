@@ -43,13 +43,10 @@ export const projects = [
     url: null,
     status: null,
   },
-  {
-    name: 'Liquidity Timed Portfolio Manager',
-    blurb: 'A model portfolio that shifts with market liquidity',
-    url: null,
-    status: 'coming soon',
-  },
 ];
+
+// One line under the projects list, in place of listing unbuilt ones.
+export const projectsComingSoon = 'More projects coming soon.';
 
 // Always shown in alphabetical order, so new ones can be added anywhere in the list.
 export const interests = ['AI', 'Boating', 'Golf', 'Investing', 'Okoboji', 'Privacy tech'].sort((a, b) =>

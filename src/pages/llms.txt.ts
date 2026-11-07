@@ -3,7 +3,7 @@ import type { APIRoute } from 'astro';
 import career from '../data/career.json';
 import books from '../data/books.json';
 import recommendations from '../data/recommendations.json';
-import { site, projects, interests } from '../data/site';
+import { site, projects, projectsComingSoon, interests } from '../data/site';
 import { contactItems, connect } from '../data/connect';
 
 export const GET: APIRoute = () => {
@@ -27,6 +27,7 @@ ${work}
 
 ## Projects (Wimmer Labs)
 ${projects.map((p) => `- ${p.name}: ${p.blurb}${p.status ? ` (${p.status})` : ''}`).join('\n')}
+${projectsComingSoon}
 
 ## Favorite books
 ${favorites}

@@ -4,7 +4,7 @@ import BookCover from '../components/BookCover.astro';
 import career from '../data/career.json';
 import books from '../data/books.json';
 import recommendations from '../data/recommendations.json';
-import { site, projects, interests, contactOptions } from '../data/site';
+import { site, projects, projectsComingSoon, interests, contactOptions } from '../data/site';
 
 const homeBooks = books.library.filter((b) => b.homepage);
 const shortTitle = (t: string) => t.split(':')[0];
@@ -103,6 +103,9 @@ const jsonLd = {
             </li>
           ))
         }
+        <li>
+          <p class="rows__blurb">{projectsComingSoon}</p>
+        </li>
       </ul>
     </article>
 
