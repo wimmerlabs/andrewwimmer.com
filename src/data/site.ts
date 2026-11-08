@@ -37,12 +37,6 @@ export const projects = [
     url: 'https://github.com/wimmerlabs/andrewwimmer.com',
     status: null,
   },
-  {
-    name: 'PrefStrategy',
-    blurb: "A Python optimizer for Strategy's preferred-stock lineup",
-    url: null,
-    status: null,
-  },
 ];
 
 // One line under the projects list, in place of listing unbuilt ones.
